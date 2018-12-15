@@ -2,6 +2,8 @@
 Reescrita do projeto livraria-jsf em reactjs e springboot/nodejs  
 Projeto antigo jsf: https://livraria-app1.herokuapp.com/login.xhtml  
 
+Novo projeto: https://rfaguiar.github.io/livraria-frontend-reactjs/  
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
