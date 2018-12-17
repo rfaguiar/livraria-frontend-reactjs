@@ -8,7 +8,7 @@ const LoginContainer = () => {
         <fieldset>
           <legend>Login</legend>
             <label htmlFor="loginEmail">Email:<span>*</span></label>
-            <input id="loginEmail" name="email" type="text" type="email" />
+            <input id="loginEmail" name="email" type="email" />
             <br/>
             <label htmlFor="loginSenha">Senha:<span>*</span></label>
             <input id="loginSenha" name="senha" type="password" />
