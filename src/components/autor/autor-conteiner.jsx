@@ -6,10 +6,10 @@ const AutorContainer = () => {
       <h1>Novo Autor</h1>
       <form>
         <label htmlFor={'autorNome'}>Nome: </label>
-        <input id={'autorNome'}/>
+        <input id={'autorNome'} name={'nome'}/>
         <br/>
         <label htmlFor={'autorEmail'}>Email: </label>
-        <input id={'autorEmail'}/>
+        <input id={'autorEmail'} name={'email'}/>
         <br/>
         <button id={'btnGravarAutor'} type={'submit'}>Gravar Autor</button>
       </form>
