@@ -13,6 +13,7 @@ exports[`test Autor component renders without crashing 1`] = `
     </label>
     <input
       id="autorNome"
+      name="nome"
     />
     <br />
     <label
@@ -22,6 +23,7 @@ exports[`test Autor component renders without crashing 1`] = `
     </label>
     <input
       id="autorEmail"
+      name="email"
     />
     <br />
     <button
