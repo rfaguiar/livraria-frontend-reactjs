@@ -29,5 +29,13 @@
     "jest": "^23.6.0",
     "jest-enzyme": "^7.0.1",
     "react-test-renderer": "^16.6.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!/node_modules/",
+      "!src/index.js",
+      "!src/serviceWorker.js"
+    ]
   }
 }
