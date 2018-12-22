@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/rfaguiar/livraria-frontend-reactjs.svg?branch=master)](https://travis-ci.org/rfaguiar/livraria-frontend-reactjs)  
 # livraria-frontend-reactjs
 Reescrita do projeto livraria-jsf em reactjs e springboot/nodejs  
 Projeto antigo jsf: https://livraria-app1.herokuapp.com/login.xhtml  
