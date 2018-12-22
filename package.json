@@ -12,6 +12,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -24,6 +25,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
     "jest": "^23.6.0",
