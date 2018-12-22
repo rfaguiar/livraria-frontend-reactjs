@@ -9,8 +9,10 @@ describe('test AutorConteiner component', () => {
 
   it('should renders without crashing', () => {
     shallow(<AutorConteiner/>);
+    const tree = renderer.create(<AutorConteiner />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
-
 
   it('AutorConteiner should be contain form', () => {
     expect(wrapper.find('form')).toExist();
