@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
-import AutorConteiner from '../components/autor/autor-conteiner';
+import AutorConteiner from '../components/autor/autor-container';
 
 describe('test AutorConteiner component', () => {
 

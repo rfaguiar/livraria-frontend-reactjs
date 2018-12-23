@@ -1,5 +1,5 @@
 import React from 'react';
-import AutorContainer from './autor-conteiner';
+import AutorContainer from './autor-container';
 
 const Autor = () => {
   return (
