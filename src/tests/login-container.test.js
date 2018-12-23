@@ -19,11 +19,15 @@ describe('test LoginContainer component', () => {
   });
 
   it('LoginContainer should be contain input loginEmail', () => {
-    expect(wrapper.find('#loginEmail')).toMatchSelector('input');
+    const email = wrapper.find('#loginEmail');
+    expect(email).toMatchSelector('input');
+    expect(email).toHaveProp('name', 'email');
   });
 
   it('LoginContainer should be contain input loginSenha', () => {
-    expect(wrapper.find('#loginSenha')).toMatchSelector('input');
+    const senha = wrapper.find('#loginSenha');
+    expect(senha).toMatchSelector('input');
+    expect(senha).toHaveProp('name', 'senha');
   });
 
   it('LoginContainer should be contain button Efetue Login and tyoe submit', () => {

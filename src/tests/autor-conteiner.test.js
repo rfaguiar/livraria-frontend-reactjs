@@ -23,11 +23,15 @@ describe('test AutorConteiner component', () => {
   });
 
   it('should be contains nome input', () => {
-    expect(wrapper.find('#autorNome')).toMatchSelector('input');
+    const nome = wrapper.find('#autorNome');
+    expect(nome).toMatchSelector('input');
+    expect(nome).toHaveProp('name', 'nome');
   });
 
   it('should be contains email input', () => {
-    expect(wrapper.find('#autorEmail')).toMatchSelector('input');
+    const email = wrapper.find('#autorEmail');
+    expect(email).toMatchSelector('input');
+    expect(email).toHaveProp('name', 'email');
   });
 
   it('should be contain a button "Gravar Autor" and type submit', () => {
