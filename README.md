@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/rfaguiar/livraria-frontend-reactjs.svg?branch=master)](https://travis-ci.org/rfaguiar/livraria-frontend-reactjs)  
+[![Build Status](https://travis-ci.org/rfaguiar/livraria-frontend-reactjs.svg?branch=master)](https://travis-ci.org/rfaguiar/livraria-frontend-reactjs) 
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=rfaguiar_livraria-frontend-reactjs&metric=alert_status)](https://sonarcloud.io/dashboard?id=rfaguiar_livraria-frontend-reactjs) 
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rfaguiar_livraria-frontend-reactjs&metric=coverage)](https://sonarcloud.io/component_measures?id=rfaguiar_livraria-frontend-reactjs&metric=coverage)  
 # livraria-frontend-reactjs
 Reescrita do projeto livraria-jsf em reactjs e springboot/nodejs  
 Projeto antigo jsf: https://livraria-app1.herokuapp.com/login.xhtml  
