@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 import Autor from '../components/autor';
-import AutorContainer from '../components/autor/autor-conteiner';
+import AutorContainer from '../components/autor/autor-container';
 
 
 describe('test Autor component', () => {
