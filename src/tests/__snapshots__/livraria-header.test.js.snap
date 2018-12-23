@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test LivrariaHeader component renders without crashing 1`] = `
+<header>
+  <nav
+    className="menu"
+  >
+    <ul>
+      <li>
+        <a
+          href="#"
+          id="livroItem"
+        >
+          Livros
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          id="autorItem"
+        >
+          Autores
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          id="vendaItem"
+        >
+          Vendas
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          id="logoutItem"
+        >
+          Logout
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
