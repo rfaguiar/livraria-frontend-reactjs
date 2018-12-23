@@ -5,10 +5,10 @@ const MenuContainer = () => {
   return (
     <nav className={'menu'}>
       <ul>
-        <li><a id={'livroItem'} href={'#'}>Livros</a></li>
-        <li><a id={'autorItem'} href={'#'}>Autores</a></li>
-        <li><a id={'vendaItem'} href={'#'}>Vendas</a></li>
-        <li><a id={'logoutItem'} href={'#'}>Logout</a></li>
+        <li><a id={'livroItem'} href={'/livros'}>Livros</a></li>
+        <li><a id={'autorItem'} href={'/autores'}>Autores</a></li>
+        <li><a id={'vendaItem'} href={'/vendas'}>Vendas</a></li>
+        <li><a id={'logoutItem'} href={'/logout'}>Logout</a></li>
       </ul>
     </nav>
   );
