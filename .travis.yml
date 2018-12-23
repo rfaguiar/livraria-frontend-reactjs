@@ -5,7 +5,7 @@ dist: trusty
 sudo: required
 addons:
   sonarcloud:
-    organization: "rfaguiar" # the key of the org you chose at step #3
+    organization: "rfaguiar-github" # the key of the org you chose at step #3
     token:
       secure: $SONAR_TOKEN # encrypted value of your token
 cache:
