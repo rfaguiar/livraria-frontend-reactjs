@@ -1,12 +1,26 @@
 language: node_js
 node_js:
   - "stable"
+dist: trusty
+sudo: required
+addons:
+  sonarcloud:
+    organization: "rfaguiar" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your token
 cache:
   directories:
   - node_modules
+jdk:
+- oraclejdk8
 script:
   - npm test
   - npm run build
+  - npm test -- --coverage
+  - sonar-scanner
+cache:
+  directories:
+  - '$HOME/.sonar/cache'
 deploy:
   provider: pages
   skip_cleanup: true
@@ -14,3 +28,6 @@ deploy:
   local_dir: build
   on:
     branch: master
+
+
+
