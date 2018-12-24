@@ -1,44 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`test LivrariaHeader component renders without crashing 1`] = `
-<header>
-  <nav
-    className="menu"
-  >
-    <ul>
-      <li>
-        <a
-          href="/livros"
-          id="livroItem"
-        >
-          Livros
-        </a>
-      </li>
-      <li>
-        <a
-          href="/autores"
-          id="autorItem"
-        >
-          Autores
-        </a>
-      </li>
-      <li>
-        <a
-          href="/vendas"
-          id="vendaItem"
-        >
-          Vendas
-        </a>
-      </li>
-      <li>
-        <a
-          href="/login"
-          id="logoutItem"
-        >
-          Logout
-        </a>
-      </li>
-    </ul>
-  </nav>
-</header>
+<div>
+  <header>
+    <nav
+      className="menu"
+    >
+      <ul>
+        <li>
+          <a
+            href="/livros"
+            id="livroItem"
+            onClick={[Function]}
+          >
+            Livros
+          </a>
+        </li>
+        <li>
+          <a
+            href="/autores"
+            id="autorItem"
+            onClick={[Function]}
+          >
+            Autores
+          </a>
+        </li>
+        <li>
+          <a
+            href="/vendas"
+            id="vendaItem"
+            onClick={[Function]}
+          >
+            Vendas
+          </a>
+        </li>
+        <li>
+          <a
+            href="/login"
+            id="logoutItem"
+            onClick={[Function]}
+          >
+            Logout
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div />
+</div>
 `;

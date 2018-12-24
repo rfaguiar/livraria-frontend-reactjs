@@ -1,10 +1,11 @@
 import React from 'react';
-import  {Route, Router, Switch} from 'react-router-dom';
+import  {Router, Switch} from 'react-router-dom';
+import createHashHistory from 'history/createHashHistory';
 import Login from '../components/login';
 import Vendas from '../components/venda';
 import Autor from '../components/autor';
 import Livro from '../components/livro';
-import createHashHistory from 'history/createHashHistory';
+import DefaultLayoutProtected from './default-layout-protected';
 
 const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
 
@@ -12,10 +13,10 @@ const LivrariaRouter = () => {
   return (
     <Router history={hashHistory} basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route path={'/livros'} exact component={Livro}/>
-        <Route path={'/autores'} exact component={Autor}/>
-        <Route path={'/vendas'} exact component={Vendas}/>
-        <Route path={'*'} exact component={Login}/>
+        <DefaultLayoutProtected path={'/livros'} exact component={Livro}/>
+        <DefaultLayoutProtected path={'/autores'} exact component={Autor}/>
+        <DefaultLayoutProtected path={'/vendas'} exact component={Vendas}/>
+        <DefaultLayoutProtected path={'*'} exact component={Login}/>
       </Switch>
     </Router>
   );
