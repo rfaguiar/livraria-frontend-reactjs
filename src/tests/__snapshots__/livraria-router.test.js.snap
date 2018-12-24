@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test LivrariaRouter component should renders without crashing  1`] = `
+<div>
+  <span
+    id="messages"
+  />
+  <form
+    onSubmit={[Function]}
+  >
+    <fieldset>
+      <legend>
+        Login
+      </legend>
+      <label
+        htmlFor="loginEmail"
+      >
+        Email:
+        <span>
+          *
+        </span>
+      </label>
+      <input
+        id="loginEmail"
+        name="email"
+        type="email"
+      />
+      <br />
+      <label
+        htmlFor="loginSenha"
+      >
+        Senha:
+        <span>
+          *
+        </span>
+      </label>
+      <input
+        id="loginSenha"
+        name="senha"
+        type="password"
+      />
+      <br />
+      <button
+        type="submit"
+      >
+        Efetue Login
+      </button>
+    </fieldset>
+  </form>
+</div>
+`;
