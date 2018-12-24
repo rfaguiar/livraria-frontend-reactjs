@@ -7,7 +7,7 @@ import Livro from '../components/livro';
 
 const LivrariaRouter = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path={'/livros'} exact component={Livro}/>
         <Route path={'/autores'} exact component={Autor}/>
