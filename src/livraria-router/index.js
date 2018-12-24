@@ -11,7 +11,7 @@ const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
 
 const LivrariaRouter = () => {
   return (
-    <Router history={hashHistory} basename={process.env.PUBLIC_URL}>
+    <Router history={hashHistory}>
       <Switch>
         <DefaultLayoutProtected path={'/livros'} exact component={Livro}/>
         <DefaultLayoutProtected path={'/autores'} exact component={Autor}/>
