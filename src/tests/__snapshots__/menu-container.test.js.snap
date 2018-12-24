@@ -31,7 +31,7 @@ exports[`test MenuContainer component should renders without crashing  1`] = `
     </li>
     <li>
       <a
-        href="/logout"
+        href="/login"
         id="logoutItem"
       >
         Logout

@@ -32,7 +32,7 @@ exports[`test LivrariaHeader component renders without crashing 1`] = `
       </li>
       <li>
         <a
-          href="/logout"
+          href="/login"
           id="logoutItem"
         >
           Logout
