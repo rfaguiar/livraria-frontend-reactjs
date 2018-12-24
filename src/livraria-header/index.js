@@ -1,11 +1,16 @@
 import React from 'react';
 import MenuContainer from './menu-container';
 
-const LivrariaHeader = () => {
+const LivrariaHeader = (props) => {
   return (
-    <header>
-      <MenuContainer/>
-    </header>
+    <div>
+      <header>
+        <MenuContainer/>
+      </header>
+      <div>
+        {props.children}
+      </div>
+    </div>
   );
 };
 

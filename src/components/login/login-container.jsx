@@ -4,7 +4,7 @@ const LoginContainer = () => {
   return (
     <div>
       <span id="messages"></span>
-      <form onSubmit={(event) => event.preventDefault()}>
+      <form>
         <fieldset>
           <legend>Login</legend>
             <label htmlFor="loginEmail">Email:<span>*</span></label>
