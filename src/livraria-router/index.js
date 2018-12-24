@@ -1,20 +1,23 @@
 import React from 'react';
-import  {BrowserRouter, Route, Switch} from 'react-router-dom';
+import  {Route, Router, Switch} from 'react-router-dom';
 import Login from '../components/login';
 import Vendas from '../components/venda';
 import Autor from '../components/autor';
 import Livro from '../components/livro';
+import createHashHistory from 'history/createHashHistory';
+
+const hashHistory = createHashHistory({ basename: process.env.PUBLIC_URL });
 
 const LivrariaRouter = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <Router history={hashHistory} basename={process.env.PUBLIC_URL}>
       <Switch>
         <Route path={'/livros'} exact component={Livro}/>
         <Route path={'/autores'} exact component={Autor}/>
         <Route path={'/vendas'} exact component={Vendas}/>
         <Route path={'*'} exact component={Login}/>
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 
