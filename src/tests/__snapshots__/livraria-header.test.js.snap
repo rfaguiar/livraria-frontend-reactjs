@@ -8,7 +8,7 @@ exports[`test LivrariaHeader component renders without crashing 1`] = `
     <ul>
       <li>
         <a
-          href="#"
+          href="/livros"
           id="livroItem"
         >
           Livros
@@ -16,7 +16,7 @@ exports[`test LivrariaHeader component renders without crashing 1`] = `
       </li>
       <li>
         <a
-          href="#"
+          href="/autores"
           id="autorItem"
         >
           Autores
@@ -24,7 +24,7 @@ exports[`test LivrariaHeader component renders without crashing 1`] = `
       </li>
       <li>
         <a
-          href="#"
+          href="/vendas"
           id="vendaItem"
         >
           Vendas
@@ -32,7 +32,7 @@ exports[`test LivrariaHeader component renders without crashing 1`] = `
       </li>
       <li>
         <a
-          href="#"
+          href="/logout"
           id="logoutItem"
         >
           Logout
