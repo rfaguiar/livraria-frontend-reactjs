@@ -9,7 +9,7 @@ exports[`test LivrariaRouter component should renders without crashing  1`] = `
       <ul>
         <li>
           <a
-            href="#/livros"
+            href="/livros"
             id="livroItem"
             onClick={[Function]}
           >
@@ -18,7 +18,7 @@ exports[`test LivrariaRouter component should renders without crashing  1`] = `
         </li>
         <li>
           <a
-            href="#/autores"
+            href="/autores"
             id="autorItem"
             onClick={[Function]}
           >
@@ -27,7 +27,7 @@ exports[`test LivrariaRouter component should renders without crashing  1`] = `
         </li>
         <li>
           <a
-            href="#/vendas"
+            href="/vendas"
             id="vendaItem"
             onClick={[Function]}
           >
@@ -36,7 +36,7 @@ exports[`test LivrariaRouter component should renders without crashing  1`] = `
         </li>
         <li>
           <a
-            href="#/login"
+            href="/login"
             id="logoutItem"
             onClick={[Function]}
           >
