@@ -5,7 +5,9 @@ exports[`test LoginContainer component renders without crashing 1`] = `
   <span
     id="messages"
   />
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <fieldset>
       <legend>
         Login

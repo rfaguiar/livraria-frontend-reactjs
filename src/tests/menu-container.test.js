@@ -1,8 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
-import MenuContainer from '../livraria-header/menu-container';
+import MenuContainer, {_handleLogout} from '../livraria-header/menu-container';
 import { MemoryRouter } from 'react-router';
+import {fakeAuth} from '../components/auth';
 
 
 describe('test MenuContainer component', () => {
@@ -41,7 +42,25 @@ describe('test MenuContainer component', () => {
     const logout = wrapper.find('#logoutItem');
     expect(logout).toMatchSelector('Link');
     expect(logout).toHaveProp('children', 'Logout');
-    expect(logout).toHaveProp('to', '/login');
+    expect(logout).toHaveProp('to', '/');
+  });
+
+});
+
+describe('test logout menu', () => {
+
+  it('should call fakeauth.signout when logout', () => {
+
+    //given
+    const signoutAuthMock = jest.fn();
+    fakeAuth.signout = signoutAuthMock;
+
+    //when
+    _handleLogout();
+
+    //then
+    expect(signoutAuthMock).toBeCalled();
+
   });
 
 });

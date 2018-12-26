@@ -1,5 +1,5 @@
 import React from 'react';
-import  {BrowserRouter, Switch} from 'react-router-dom';
+import  {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from '../components/login';
 import Vendas from '../components/venda';
 import Autor from '../components/autor';
@@ -13,7 +13,7 @@ const LivrariaRouter = () => {
         <DefaultLayoutProtected path={'/livros'} exact component={Livro}/>
         <DefaultLayoutProtected path={'/autores'} exact component={Autor}/>
         <DefaultLayoutProtected path={'/vendas'} exact component={Vendas}/>
-        <DefaultLayoutProtected path={'*'} exact component={Login}/>
+        <Route path={'*'} exact component={Login}/>
       </Switch>
     </BrowserRouter>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const LoginContainer = () => {
+const LoginContainer = (props) => {
   return (
     <div>
       <span id="messages"></span>
-      <form>
+      <form onSubmit={event => props.loginSubmit(event, props.history)}>
         <fieldset>
           <legend>Login</legend>
             <label htmlFor="loginEmail">Email:<span>*</span></label>

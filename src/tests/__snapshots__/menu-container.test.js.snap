@@ -34,7 +34,7 @@ exports[`test MenuContainer component should renders without crashing  1`] = `
     </li>
     <li>
       <a
-        href="/login"
+        href="/"
         id="logoutItem"
         onClick={[Function]}
       >
