@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
 import LoginContainer from '../components/login/login-container';
+import {_loginSubmit} from '../components/login';
 
 describe('test LoginContainer component', () => {
 
@@ -36,3 +37,20 @@ describe('test LoginContainer component', () => {
   })
 
 });
+
+describe('test submit form', () => {
+
+  it('should submit form and handle prop function', () => {
+
+    //given
+    const loginSubmitMock = jest.fn();
+    const wrapper = shallow(<LoginContainer loginSubmit={loginSubmitMock} />);
+
+    //when
+    wrapper.find('form').simulate('submit');
+
+    //then
+    expect(loginSubmitMock).toBeCalled();
+  });
+})
+
