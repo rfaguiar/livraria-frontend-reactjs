@@ -1,38 +1,19 @@
-import {fakeAuth} from '../components/auth';
+import * as auth from '../components/auth';
+import * as actions from '../components/auth/actions';
 
-describe('test fake auth action', () => {
+describe('test auth', () => {
 
-  beforeEach(() => {
-    expect(fakeAuth.isAuthenticated).toBeFalsy();
+  it('should test authenticate', () => {
+
+    actions.authenticate = jest.fn();
+    auth.authenticate('testUsername', 'testPassword');
+    expect(actions.authenticate).toBeCalledWith('testUsername', 'testPassword');
   });
 
-  it('should authenticate when call fakeAuth.authenticate', () => {
+  it('should test logout', () => {
 
-    fakeAuth.authenticate(() => {
-      //do redirect
-    }, 'usernameFakeAuth');
-
-    expect(fakeAuth.isAuthenticated).toBeTruthy();
-
-  });
-
-});
-
-describe('test fake auth logout action', () => {
-
-  beforeEach(() => {
-    fakeAuth.authenticate(() => {
-      //do redirect
-    }, 'usernameFakeAuth');
-    expect(fakeAuth.isAuthenticated).toBeTruthy();
-  });
-
-  it('should not authenticate when call fakeauth.signout', () => {
-
-    fakeAuth.signout(() => {
-      //redirect to login
-    });
-
-    expect(fakeAuth.isAuthenticated).toBeFalsy();
+    actions.logout = jest.fn();
+    auth.logout();
+    expect(actions.logout).toBeCalled();
   });
 });

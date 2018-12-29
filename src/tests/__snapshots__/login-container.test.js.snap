@@ -4,7 +4,9 @@ exports[`test LoginContainer component renders without crashing 1`] = `
 <div>
   <span
     id="messages"
-  />
+  >
+    
+  </span>
   <form
     onSubmit={[Function]}
   >
