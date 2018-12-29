@@ -1,6 +1,6 @@
 import { Reducer } from 'redux-testkit';
 import initialState from './initial-state';
-import authReducer from '../components/auth/reducer';
+import authReducer from '../components/auth/auth-reducer';
 import * as types from '../components/auth/actionTypes';
 import {SIGNOUT} from '../components/auth/actionTypes';
 
