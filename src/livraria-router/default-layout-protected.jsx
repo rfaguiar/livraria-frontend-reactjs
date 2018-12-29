@@ -1,15 +1,15 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import LivrariaHeader from '../livraria-header';
-import {fakeAuth} from '../components/auth';
+import {store} from '../index';
 
 const DefaultLayoutProtected = ({component: Component, ...rest}) => {
   return (
     <Route {...rest} render={matchProps => {
-      if (fakeAuth.isAuthenticated) {
-        return <LivrariaHeader><Component {...matchProps} /></LivrariaHeader>;
+      if (store.getState().auth.isAuthenticated) {
+        return (<LivrariaHeader><Component {...matchProps} /></LivrariaHeader>);
       } else {
-        return <Redirect to='/'/>;
+        return (<Redirect to='/'/>);
       }
     }} />
   )

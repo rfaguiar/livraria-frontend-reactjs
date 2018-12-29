@@ -1,14 +1,4 @@
+import * as actions from './actions';
 
-export const fakeAuth = {
-  isAuthenticated: false,
-  username: '',
-  authenticate(callBack, username) {
-    this.isAuthenticated = true;
-    this.username = username;
-    setTimeout(callBack, 100); // fake async
-  },
-  signout(callBack) {
-    this.isAuthenticated = false;
-    setTimeout(callBack, 100); // fake async
-  }
-}
+export const authenticate = (username, password) => actions.authenticate(username, password);
+export const logout = () => actions.logout();
