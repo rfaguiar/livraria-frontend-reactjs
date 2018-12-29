@@ -27,9 +27,6 @@ describe('test MenuContainer component', () => {
   });
 
   it('should renders without crashing ', () => {
-    // const tree = renderer.create(<MenuContainer store={store}/>)
-    //   .toJSON();
-    // expect(tree).toMatchSnapshot();
     const component = renderer.create(
       <Provider store={store}>
         <MemoryRouter>
