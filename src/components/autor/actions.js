@@ -1,5 +1,5 @@
 import Helper from './helper';
-import {GET_AUTORES} from './types';
+import {GET_AUTORES} from './actionTypes';
 
 export const getAutoresList = () => {
   const helper = new Helper();

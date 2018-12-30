@@ -5,11 +5,13 @@ import {Provider} from 'react-redux';
 import multi from 'redux-multi';
 import thunk from 'redux-thunk';
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import authReducer from './components/auth/auth-reducer';
 import LivrariaRouter from './livraria-router';
+import authReducer from './components/auth/auth-reducer';
+import autorReducer from './components/autor/autor-reducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  autor: autorReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(multi, thunk));

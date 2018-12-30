@@ -3,7 +3,7 @@ import initialState from './initial-state';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from '../components/autor/actions';
-import * as types from '../components/autor/types';
+import * as types from '../components/autor/actionTypes';
 
 var Helper = require('../components/autor/helper').default;
 Helper.prototype.getAutoresList = jest.fn(() => Promise.resolve(autores));
