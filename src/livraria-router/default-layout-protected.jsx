@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import LivrariaHeader from '../livraria-header';
-import {store} from '../index';
+import {store} from '../App';
 
 const DefaultLayoutProtected = ({component: Component, ...rest}) => {
   return (
