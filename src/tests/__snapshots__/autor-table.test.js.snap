@@ -16,7 +16,44 @@ exports[`test AutorTable components should renders without crashing 1`] = `
         </th>
       </tr>
     </thead>
-    <tbody />
+    <tbody>
+      <tr>
+        <td>
+          fulano
+        </td>
+        <td>
+          fulano@fulano.com
+        </td>
+        <td>
+          <button>
+            alterar
+          </button>
+        </td>
+        <td>
+          <button>
+            remover
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          ciclano
+        </td>
+        <td>
+          ciclano@ciclano.com
+        </td>
+        <td>
+          <button>
+            alterar
+          </button>
+        </td>
+        <td>
+          <button>
+            remover
+          </button>
+        </td>
+      </tr>
+    </tbody>
   </table>
 </div>
 `;

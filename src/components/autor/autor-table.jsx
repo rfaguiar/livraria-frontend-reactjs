@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAutoresList} from './actions';
 
-class AutorTable extends Component {
+export class AutorTable extends Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAutoresList();
   }
 
