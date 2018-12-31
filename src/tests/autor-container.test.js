@@ -32,30 +32,8 @@ describe('test AutorConteiner component', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('AutorConteiner should be contain form', () => {
-    expect(wrapper.find('form').at(0)).toExist();
-  });
-
   it('should be contains a "Novo Autor" title', () => {
     expect(wrapper.find('h1').at(0)).toHaveText('Novo Autor');
-  });
-
-  it('should be contains nome input', () => {
-    const nome = wrapper.find('#autorNome').at(0);
-    expect(nome).toMatchSelector('input');
-    expect(nome).toHaveProp('name', 'nome');
-  });
-
-  it('should be contains email input', () => {
-    const email = wrapper.find('#autorEmail').at(0);
-    expect(email).toMatchSelector('input');
-    expect(email).toHaveProp('name', 'email');
-  });
-
-  it('should be contain a button "Gravar Autor" and type submit', () => {
-    const button = wrapper.find('#btnGravarAutor').at(0);
-    expect(button).toHaveProp('type', 'submit');
-    expect(button).toHaveText('Gravar Autor');
   });
 
 });
