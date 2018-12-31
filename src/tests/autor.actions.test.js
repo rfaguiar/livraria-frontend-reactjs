@@ -22,6 +22,18 @@ describe('autor actions tests', () => {
         expect(store.getActions()[0].type).toEqual(types.GET_AUTORES);
         expect(store.getActions()[0].payload).toEqual(autores);
       });
-
   });
+
+  it('should create an action to SAVE_AUTOR', () => {
+
+    const store = mockStore(initialState);
+
+    var mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
+    return store.dispatch(actions.saveAutor(mockAutor))
+      .then(() => {
+        expect(store.getActions()[0].type).toEqual(types.SAVE_AUTOR);
+        expect(store.getActions()[0].payload).toEqual(mockAutor);
+      });
+  });
+
 });
