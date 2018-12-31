@@ -34,7 +34,6 @@ const mapDispatchToProps = dispatch => {
       event.preventDefault();
       dispatch(
         authenticate(event.target.email.value, event.target.senha.value)
-
       ).then(() => history.push('/livros'))
     }
   }

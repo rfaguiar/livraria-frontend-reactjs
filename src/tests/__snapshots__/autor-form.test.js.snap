@@ -11,6 +11,8 @@ exports[`test autorForm component should renders without crashing 1`] = `
     <input
       id="autorNome"
       name="nome"
+      onChange={[Function]}
+      value=""
     />
     <br />
     <label
@@ -21,9 +23,12 @@ exports[`test autorForm component should renders without crashing 1`] = `
     <input
       id="autorEmail"
       name="email"
+      onChange={[Function]}
+      value=""
     />
     <br />
     <button
+      disabled={true}
       id="btnGravarAutor"
       type="submit"
     >

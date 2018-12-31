@@ -1,18 +1,30 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import AutorForm from '../components/autor/autor-form';
+import {AutorForm} from '../components/autor/autor-form';
 import {mount} from 'enzyme/build/index';
+import {Provider} from 'react-redux';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import initialState from './initial-state';
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+const store = mockStore(initialState);
 
 describe('test autorForm component', () => {
 
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<AutorForm />);
+    wrapper = mount(
+        <AutorForm />
+    );
   });
 
   it('should renders without crashing', () => {
-    const tree = renderer.create(<AutorForm />).toJSON();
+    const tree = renderer.create(
+        <AutorForm />
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -36,6 +48,28 @@ describe('test autorForm component', () => {
     const button = wrapper.find('#btnGravarAutor').at(0);
     expect(button).toHaveProp('type', 'submit');
     expect(button).toHaveText('Gravar Autor');
+  });
+
+  it('should disabled button Gravar Autor when inputs nome and email is empty', () => {
+    const button = wrapper.find('#btnGravarAutor').at(0);
+    expect(button).toHaveProp('disabled', true);
+  });
+
+  it('should disabled false button Gravar Autor when inputs nome and email is not empty', () => {
+
+    const nome = wrapper.find('#autorNome').at(0);
+    const email = wrapper.find('#autorEmail').at(0);
+    const button = wrapper.find('#btnGravarAutor').at(0);
+
+    nome.simulate('change', {target: {name: 'nome', value: 'nomeTest'}});
+    email.simulate('change', {target: {name: 'email', value: 'emailtest@email.com'}});
+
+    expect(wrapper.state().nome).toEqual('nomeTest');
+    expect(wrapper.state().email).toEqual('emailtest@email.com');
+
+    wrapper.update();
+
+    expect(button).toHaveProp('disabled', true);
   });
 
 });
