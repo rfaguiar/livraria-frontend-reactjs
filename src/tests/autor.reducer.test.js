@@ -13,9 +13,21 @@ describe('autor reducer test', () => {
     expect(autorReducer(undefined, {})).toEqual(initialState.autor);
   });
 
-  it('should have be isAuthenticated: true and username when GET_AUTORES type', () => {
+  it('should have find all autores when GET_AUTORES type', () => {
     const action = {type: types.GET_AUTORES, payload: autores};
     const valueFromAction = autores;
+
+    Reducer(autorReducer)
+      .withState(initialState.autor)
+      .expect(action)
+      .toReturnState(valueFromAction);
+  });
+
+  it('should be add autor to autores list when ADD_AUTOR type ', () => {
+    const autorMock = {nome: 'autorTest', email: 'emailtest@email.com'};
+    const action = {type: types.ADD_AUTOR, payload: autorMock};
+    const autoresMock = [].push(autorMock);
+    const valueFromAction = {autores: autoresMock};
 
     Reducer(autorReducer)
       .withState(initialState.autor)

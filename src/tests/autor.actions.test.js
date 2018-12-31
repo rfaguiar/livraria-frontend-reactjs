@@ -24,14 +24,14 @@ describe('autor actions tests', () => {
       });
   });
 
-  it('should create an action to SAVE_AUTOR', () => {
+  it('should create an action to ADD_AUTOR', () => {
 
     const store = mockStore(initialState);
 
     var mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
     return store.dispatch(actions.saveAutor(mockAutor))
       .then(() => {
-        expect(store.getActions()[0].type).toEqual(types.SAVE_AUTOR);
+        expect(store.getActions()[0].type).toEqual(types.ADD_AUTOR);
         expect(store.getActions()[0].payload).toEqual(mockAutor);
       });
   });
