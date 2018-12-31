@@ -72,4 +72,13 @@ describe('test autorForm component', () => {
     expect(button).toHaveProp('disabled', true);
   });
 
+  // it('should submit form', () => {
+  //   let mockSubmit = jest.fn();
+  //
+  //   AutorForm.prototype.handleSubmitForm = mockSubmit;
+  //
+  //   wrapper.find("form").simulate("submit");
+  //   expect(mockSubmit).toBeCalled();
+  // });
+
 });
