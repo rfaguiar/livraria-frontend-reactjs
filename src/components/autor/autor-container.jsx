@@ -1,6 +1,7 @@
 import React from 'react';
+import AutorTable from './autor-table';
 
-const AutorContainer = () => {
+const AutorContainer = (props) => {
   return(
     <div>
       <h1>Novo Autor</h1>
@@ -14,23 +15,7 @@ const AutorContainer = () => {
         <button id={'btnGravarAutor'} type={'submit'}>Gravar Autor</button>
       </form>
       <br/>
-      <table>
-        <caption>Autores</caption>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fulano</td>
-            <td>fulano@admin.com</td>
-            <td><button>alterar</button></td>
-            <td><button>remover</button></td>
-          </tr>
-        </tbody>
-      </table>
+      <AutorTable/>
     </div>
   );
 };

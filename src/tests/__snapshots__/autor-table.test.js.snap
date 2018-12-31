@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test AutorTable components should renders without crashing 1`] = `
+<div>
+  <table>
+    <caption>
+      Autores
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          Nome
+        </th>
+        <th>
+          Email
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
