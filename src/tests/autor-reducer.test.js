@@ -34,4 +34,16 @@ describe('autor reducer test', () => {
       .toReturnState(valueFromAction);
   });
 
+  it('should be remove autor to autores list hen REMOVE_AUTOR type', () => {
+    const autorMock = {nome: 'autorTest', email: 'emailtest@email.com'};
+    const action = {type: types.REMOVE_AUTOR, payload: autorMock};
+    const valueFromAction = {autores: []};
+    initialState.autor.autores.concat(autorMock);
+
+    Reducer(autorReducer)
+      .withState(initialState.autor)
+      .expect(action)
+      .toReturnState(valueFromAction);
+  });
+
 });

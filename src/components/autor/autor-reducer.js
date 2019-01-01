@@ -1,4 +1,5 @@
-import {GET_AUTORES, ADD_AUTOR} from './actionTypes';
+import {GET_AUTORES, ADD_AUTOR, REMOVE_AUTOR} from './actionTypes';
+import * as mockResponse from './mock';
 
 const initialState = {
   autores: []
@@ -7,6 +8,12 @@ const initialState = {
 const autorReducer = (state = initialState, action) => {
 
   switch (action.type) {
+    case REMOVE_AUTOR:
+      const index = mockResponse.autores.autores.indexOf(action.payload);
+      return {
+        ...state,
+        autores: [...state.autores].splice(index, 1)
+      };
     case ADD_AUTOR:
       return {
         ...state,
