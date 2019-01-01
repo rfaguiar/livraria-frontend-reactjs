@@ -5,18 +5,25 @@ import {AutorTable} from '../components/autor/autor-table';
 import {autores} from '../components/autor/mock';
 
 const getAjutoresListMock = jest.fn();
+const removeAutorMock = jest.fn();
 
 describe('test AutorTable components', () => {
 
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<AutorTable autores={autores.autores} getAutoresList={getAjutoresListMock} />);
+    wrapper = mount(<AutorTable autores={autores.autores}
+      getAutoresList={getAjutoresListMock}
+      removeAutor={removeAutorMock}
+    />);
   });
 
   it('should renders without crashing', () => {
     const tree = renderer.create(
-        <AutorTable autores={autores.autores} getAutoresList={getAjutoresListMock}/>
+      <AutorTable autores={autores.autores}
+        getAutoresList={getAjutoresListMock}
+        removeAutor={removeAutorMock}
+      />
     ).toJSON();
     expect(tree).toMatchSnapshot();
     expect(getAjutoresListMock).toBeCalled();
@@ -31,6 +38,15 @@ describe('test AutorTable components', () => {
     const rowsTh = wrapper.find('table').find('thead').find('tr').find('th');
     expect(rowsTh.at(0)).toHaveText('Nome');
     expect(rowsTh.at(1)).toHaveText('Email');
+  });
+
+  it('should be call props removeAutor when click button remover', () => {
+    const rowsTBody = wrapper.find('table').find('tbody').find('tr').find('td');
+    const removeButton = rowsTBody.find('button').at(1);
+
+    removeButton.simulate('click');
+
+    expect(removeAutorMock).toBeCalled();
   });
 
 });

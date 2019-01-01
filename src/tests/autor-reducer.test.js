@@ -34,7 +34,7 @@ describe('autor reducer test', () => {
       .toReturnState(valueFromAction);
   });
 
-  it('should be remove autor to autores list hen REMOVE_AUTOR type', () => {
+  it('should be remove autor to autores list when REMOVE_AUTOR type', () => {
     const autorMock = {nome: 'autorTest', email: 'emailtest@email.com'};
     const action = {type: types.REMOVE_AUTOR, payload: autorMock};
     const valueFromAction = {autores: []};
@@ -44,6 +44,23 @@ describe('autor reducer test', () => {
       .withState(initialState.autor)
       .expect(action)
       .toReturnState(valueFromAction);
+  });
+
+  it('should be not remove autor to autores list when REMOVE_AUTOR type and autor not equal', () => {
+    const autorMock = {nome: 'autorTest1', email: 'emailtest@email.com'};
+    const action = {type: types.REMOVE_AUTOR, payload: autorMock};
+    initialState.autor.autores.concat(autorMock);
+    const stateMock = {
+      "autores": [
+        {"email": "fulano@fulano.com", "nome": "fulano"},
+        {"email": "ciclano@ciclano.com", "nome": "ciclano"}
+      ]
+    };
+
+    Reducer(autorReducer)
+      .withState(stateMock)
+      .expect(action)
+      .toReturnState(stateMock);
   });
 
 });

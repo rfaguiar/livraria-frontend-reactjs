@@ -30,7 +30,9 @@ exports[`test AutorTable components should renders without crashing 1`] = `
           </button>
         </td>
         <td>
-          <button>
+          <button
+            onClick={[Function]}
+          >
             remover
           </button>
         </td>
@@ -48,7 +50,9 @@ exports[`test AutorTable components should renders without crashing 1`] = `
           </button>
         </td>
         <td>
-          <button>
+          <button
+            onClick={[Function]}
+          >
             remover
           </button>
         </td>
