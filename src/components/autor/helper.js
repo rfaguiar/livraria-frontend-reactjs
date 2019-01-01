@@ -14,4 +14,12 @@ export default class Helper {
       setTimeout(resolve({status: 201}), 500);
     });
   }
+
+  removeAutor(autor) {
+    return new Promise(resolve => {
+      const index = mockResponse.autores.autores.indexOf(autor);
+      mockResponse.autores.autores.splice(index, 1);
+      setTimeout(resolve({status: 200}), 500);
+    });
+  }
 }

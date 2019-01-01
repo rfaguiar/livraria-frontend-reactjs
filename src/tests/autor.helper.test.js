@@ -25,4 +25,16 @@ describe('autor helper tests', () => {
     });
   });
 
+  it('should be remove autor to backserver', () => {
+
+    const autorMock = {'nome': 'ciclano', 'email': 'ciclano@ciclano.com'};
+    return helper.removeAutor(autorMock).then( data => {
+      expect(data.status).toEqual(200);
+      return helper.getAutoresList().then((data) => {
+        expect(data);
+        expect(data.length).toEqual(2);
+      });
+    });
+  });
+
 });
