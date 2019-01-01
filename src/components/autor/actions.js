@@ -1,5 +1,5 @@
 import Helper from './helper';
-import {GET_AUTORES, ADD_AUTOR} from './actionTypes';
+import {GET_AUTORES, ADD_AUTOR, REMOVE_AUTOR} from './actionTypes';
 
 export const getAutoresList = () => {
   const helper = new Helper();
@@ -19,6 +19,15 @@ export const saveAutor = autor => {
         return dispatch({type: ADD_AUTOR, payload: autor});
       });
   }
+};
 
-}
+export const removeAutor = autor => {
+  const helper = new Helper();
+  return dispatch => {
+    return helper.removeAutor(autor)
+      .then(() => {
+        return dispatch({type: REMOVE_AUTOR, payload: autor});
+      });
+  };
+};
 

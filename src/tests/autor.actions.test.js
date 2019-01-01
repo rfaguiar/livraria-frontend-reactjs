@@ -16,7 +16,6 @@ describe('autor actions tests', () => {
   it('should create an action to GET_AUTORES', () => {
 
     const store = mockStore(initialState);
-
     return store.dispatch(actions.getAutoresList())
       .then(() => {
         expect(store.getActions()[0].type).toEqual(types.GET_AUTORES);
@@ -27,13 +26,27 @@ describe('autor actions tests', () => {
   it('should create an action to ADD_AUTOR', () => {
 
     const store = mockStore(initialState);
-
-    var mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
+    const mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
     return store.dispatch(actions.saveAutor(mockAutor))
       .then(() => {
         expect(store.getActions()[0].type).toEqual(types.ADD_AUTOR);
         expect(store.getActions()[0].payload).toEqual(mockAutor);
       });
+  });
+
+  it('should create an action to REMOVE_AUTOR', () => {
+
+    const store= mockStore(initialState);
+    const mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
+    const removeMock = jest.fn(() => Promise.resolve({status: 200}));
+    Helper.prototype.removeAutor = removeMock;
+    return store.dispatch(actions.removeAutor(mockAutor))
+      .then(() => {
+        expect(removeMock).toBeCalled();
+        expect(store.getActions()[0].type).toEqual(types.REMOVE_AUTOR);
+        expect(store.getActions()[0].payload).toEqual(mockAutor);
+      });
+
   });
 
 });
