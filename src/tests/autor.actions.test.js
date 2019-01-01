@@ -46,7 +46,20 @@ describe('autor actions tests', () => {
         expect(store.getActions()[0].type).toEqual(types.REMOVE_AUTOR);
         expect(store.getActions()[0].payload).toEqual(mockAutor);
       });
+  });
 
+  it('should create an action to UPDATE_AUTOR', () => {
+
+    const store= mockStore(initialState);
+    const mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
+    const saveMock = jest.fn(() => Promise.resolve({status: 200}));
+    Helper.prototype.saveAutor = saveMock;
+    return store.dispatch(actions.updateAutor(mockAutor))
+      .then(() => {
+        expect(saveMock).toBeCalled();
+        expect(store.getActions()[0].type).toEqual(types.UPDATE_AUTOR);
+        expect(store.getActions()[0].payload).toEqual(mockAutor);
+      });
   });
 
 });
