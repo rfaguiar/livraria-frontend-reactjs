@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
+import {saveAutor} from './actions';
 
 export class AutorForm extends Component {
 
@@ -15,7 +16,7 @@ export class AutorForm extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmitForm.bind(this)}>
           <label htmlFor={'autorNome'}>Nome: </label>
           <input id={'autorNome'} value={this.state.nome}
             onChange={(event) => this.inputChange(event)}
@@ -30,6 +31,19 @@ export class AutorForm extends Component {
         </form>
       </div>
     );
+  }
+
+  handleSubmitForm(event) {
+    event.preventDefault();
+    this.props.saveAutor({
+      nome: this.state.nome,
+      email: this.state.email
+    }).then(() => {
+      this.setState({
+        nome: '',
+        email: ''
+      });
+    });
   }
 
   inputChange(event) {
@@ -48,6 +62,6 @@ export class AutorForm extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ saveAutor }, dispatch);
 
 export default connect(null, mapDispatchToProps)(AutorForm);

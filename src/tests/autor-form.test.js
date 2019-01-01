@@ -2,14 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import {AutorForm} from '../components/autor/autor-form';
 import {mount} from 'enzyme/build/index';
-import {Provider} from 'react-redux';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-
-import initialState from './initial-state';
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-const store = mockStore(initialState);
 
 describe('test autorForm component', () => {
 
@@ -72,13 +64,14 @@ describe('test autorForm component', () => {
     expect(button).toHaveProp('disabled', true);
   });
 
-  // it('should submit form', () => {
-  //   let mockSubmit = jest.fn();
-  //
-  //   AutorForm.prototype.handleSubmitForm = mockSubmit;
-  //
-  //   wrapper.find("form").simulate("submit");
-  //   expect(mockSubmit).toBeCalled();
-  // });
+  it('should submit form', () => {
+
+    let mockSubmit = jest.fn(() => Promise.resolve(true));
+    wrapper = mount(
+      <AutorForm saveAutor={mockSubmit} />
+    );
+    wrapper.find("form").simulate("submit");
+    expect(mockSubmit).toBeCalled();
+  });
 
 });

@@ -12,7 +12,7 @@ describe('autor helper tests', () => {
 
     return helper.getAutoresList().then((data) => {
       expect(data);
-      expect(data.autores.length).toEqual(2);
+      expect(data.length).toEqual(2);
     });
   });
 

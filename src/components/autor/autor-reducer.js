@@ -10,7 +10,7 @@ const autorReducer = (state = initialState, action) => {
     case ADD_AUTOR:
       return {
         ...state,
-        autores: [...state.autores].push({
+        autores: [...state.autores].concat({
           nome: action.payload.nome,
           email: action.payload.email
         })
@@ -18,7 +18,7 @@ const autorReducer = (state = initialState, action) => {
     case GET_AUTORES:
       return {
         ...state,
-        autores: action.payload.autores
+        autores: [].concat(action.payload)
       }
     default:
       return state;

@@ -2,7 +2,9 @@
 
 exports[`test autorForm component should renders without crashing 1`] = `
 <div>
-  <form>
+  <form
+    onSubmit={[Function]}
+  >
     <label
       htmlFor="autorNome"
     >

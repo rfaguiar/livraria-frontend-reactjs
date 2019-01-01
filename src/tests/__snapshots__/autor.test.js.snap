@@ -6,7 +6,9 @@ exports[`test Autor component renders without crashing 1`] = `
     Novo Autor
   </h1>
   <div>
-    <form>
+    <form
+      onSubmit={[Function]}
+    >
       <label
         htmlFor="autorNome"
       >

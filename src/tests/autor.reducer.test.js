@@ -14,8 +14,8 @@ describe('autor reducer test', () => {
   });
 
   it('should have find all autores when GET_AUTORES type', () => {
-    const action = {type: types.GET_AUTORES, payload: autores};
-    const valueFromAction = autores;
+    const action = {type: types.GET_AUTORES, payload: autores.autores};
+    const valueFromAction = {autores: [].concat(autores.autores)};
 
     Reducer(autorReducer)
       .withState(initialState.autor)
@@ -26,8 +26,7 @@ describe('autor reducer test', () => {
   it('should be add autor to autores list when ADD_AUTOR type ', () => {
     const autorMock = {nome: 'autorTest', email: 'emailtest@email.com'};
     const action = {type: types.ADD_AUTOR, payload: autorMock};
-    const autoresMock = [].push(autorMock);
-    const valueFromAction = {autores: autoresMock};
+    const valueFromAction = {autores: [].concat(autorMock)};
 
     Reducer(autorReducer)
       .withState(initialState.autor)

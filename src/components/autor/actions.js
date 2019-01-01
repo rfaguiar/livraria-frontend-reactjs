@@ -17,7 +17,7 @@ export const saveAutor = autor => {
     return helper.saveAutor(autor)
       .then(() => {
         return dispatch({type: ADD_AUTOR, payload: autor});
-      })
+      });
   }
 
 }
