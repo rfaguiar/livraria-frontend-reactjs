@@ -63,4 +63,21 @@ describe('autor reducer test', () => {
       .toReturnState(stateMock);
   });
 
+
+  it('should be update autor to autores list when UPDATE_AUTOR type', () => {
+    const autorMock = {nome: 'autorTestUpdated', email: 'emailtestupdated@email.com'};
+    const action = {type: types.UPDATE_AUTOR, payload: {autor: autorMock, index: 0}};
+    const valueFromAction = {autores: [autorMock]};
+    const stateMock = {
+      "autores": [
+        {nome: 'autorTest', email: 'emailtest@email.com'}
+      ]
+    };
+
+    Reducer(autorReducer)
+      .withState(stateMock)
+      .expect(action)
+      .toReturnState(valueFromAction);
+  });
+
 });

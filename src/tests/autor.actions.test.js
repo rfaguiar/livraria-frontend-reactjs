@@ -54,11 +54,11 @@ describe('autor actions tests', () => {
     const mockAutor = {nome: 'autorTest', email: 'emailtest@test.com'};
     const saveMock = jest.fn(() => Promise.resolve({status: 200}));
     Helper.prototype.saveAutor = saveMock;
-    return store.dispatch(actions.updateAutor(mockAutor))
+    return store.dispatch(actions.updateAutor(mockAutor, 0))
       .then(() => {
         expect(saveMock).toBeCalled();
         expect(store.getActions()[0].type).toEqual(types.UPDATE_AUTOR);
-        expect(store.getActions()[0].payload).toEqual(mockAutor);
+        expect(store.getActions()[0].payload).toEqual({autor: mockAutor, index: 0});
       });
   });
 

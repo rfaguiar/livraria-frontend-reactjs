@@ -31,12 +31,12 @@ export const removeAutor = autor => {
   };
 };
 
-export const updateAutor = autor => {
+export const updateAutor = (autor, index) => {
   const helper = new Helper();
   return dispatch => {
     return helper.saveAutor(autor)
       .then(() => {
-        return dispatch({type: UPDATE_AUTOR, payload: autor});
+        return dispatch({type: UPDATE_AUTOR, payload: {autor, index}});
       });
   };
 }
