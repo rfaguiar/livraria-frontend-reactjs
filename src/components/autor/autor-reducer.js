@@ -1,12 +1,18 @@
-import {GET_AUTORES, ADD_AUTOR, REMOVE_AUTOR, UPDATE_AUTOR} from './actionTypes';
+import {GET_AUTORES, ADD_AUTOR, REMOVE_AUTOR, UPDATE_AUTOR, SELECT_AUTOR} from './actionTypes';
 
 const initialState = {
-  autores: []
+  autores: [],
+  indexSelected: null,
 };
 
 const autorReducer = (state = initialState, action) => {
 
   switch (action.type) {
+    case SELECT_AUTOR:
+      return {
+        ...state,
+        indexSelected: action.payload.index
+      };
     case UPDATE_AUTOR:
       const autores = [
         ...state.autores.slice(0, action.payload.index),
@@ -19,6 +25,7 @@ const autorReducer = (state = initialState, action) => {
       ];
       return {
         ...state,
+        indexSelected: null,
         autores
       };
     case REMOVE_AUTOR:
@@ -38,7 +45,7 @@ const autorReducer = (state = initialState, action) => {
       return {
         ...state,
         autores: [].concat(action.payload)
-      }
+      };
     default:
       return state;
   }

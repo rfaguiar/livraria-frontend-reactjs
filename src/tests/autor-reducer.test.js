@@ -15,7 +15,7 @@ describe('autor reducer test', () => {
 
   it('should have find all autores when GET_AUTORES type', () => {
     const action = {type: types.GET_AUTORES, payload: autores.autores};
-    const valueFromAction = {autores: [].concat(autores.autores)};
+    const valueFromAction = {...initialState.autor, autores: [].concat(autores.autores)};
 
     Reducer(autorReducer)
       .withState(initialState.autor)
@@ -26,7 +26,7 @@ describe('autor reducer test', () => {
   it('should be add autor to autores list when ADD_AUTOR type ', () => {
     const autorMock = {nome: 'autorTest', email: 'emailtest@email.com'};
     const action = {type: types.ADD_AUTOR, payload: autorMock};
-    const valueFromAction = {autores: [].concat(autorMock)};
+    const valueFromAction = {...initialState.autor, autores: [].concat(autorMock)};
 
     Reducer(autorReducer)
       .withState(initialState.autor)
@@ -37,7 +37,7 @@ describe('autor reducer test', () => {
   it('should be remove autor to autores list when REMOVE_AUTOR type', () => {
     const autorMock = {nome: 'autorTest', email: 'emailtest@email.com'};
     const action = {type: types.REMOVE_AUTOR, payload: autorMock};
-    const valueFromAction = {autores: []};
+    const valueFromAction = {...initialState.autor, autores: []};
     initialState.autor.autores.concat(autorMock);
 
     Reducer(autorReducer)
@@ -63,11 +63,10 @@ describe('autor reducer test', () => {
       .toReturnState(stateMock);
   });
 
-
   it('should be update autor to autores list when UPDATE_AUTOR type', () => {
     const autorMock = {nome: 'autorTestUpdated', email: 'emailtestupdated@email.com'};
     const action = {type: types.UPDATE_AUTOR, payload: {autor: autorMock, index: 0}};
-    const valueFromAction = {autores: [autorMock]};
+    const valueFromAction = {...initialState.autor, autores: [autorMock]};
     const stateMock = {
       "autores": [
         {nome: 'autorTest', email: 'emailtest@email.com'}
@@ -76,6 +75,16 @@ describe('autor reducer test', () => {
 
     Reducer(autorReducer)
       .withState(stateMock)
+      .expect(action)
+      .toReturnState(valueFromAction);
+  });
+
+  it('should be update autor to autores list when SELECT_AUTOR type', () => {
+    const action = {type: types.SELECT_AUTOR, payload: {index: 0}};
+    const valueFromAction = {...initialState.autor, indexSelected: 0};
+
+    Reducer(autorReducer)
+      .withState(initialState.autor)
       .expect(action)
       .toReturnState(valueFromAction);
   });

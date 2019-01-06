@@ -6,6 +6,7 @@ import {autores} from '../components/autor/mock';
 
 const getAjutoresListMock = jest.fn();
 const removeAutorMock = jest.fn();
+const selectAutorMock = jest.fn();
 
 describe('test AutorTable components', () => {
 
@@ -15,6 +16,7 @@ describe('test AutorTable components', () => {
     wrapper = mount(<AutorTable autores={autores.autores}
       getAutoresList={getAjutoresListMock}
       removeAutor={removeAutorMock}
+      selectAutor={selectAutorMock}
     />);
   });
 
@@ -23,6 +25,7 @@ describe('test AutorTable components', () => {
       <AutorTable autores={autores.autores}
         getAutoresList={getAjutoresListMock}
         removeAutor={removeAutorMock}
+        alterarAutor={selectAutorMock}
       />
     ).toJSON();
     expect(tree).toMatchSnapshot();
@@ -47,6 +50,16 @@ describe('test AutorTable components', () => {
     removeButton.simulate('click');
 
     expect(removeAutorMock).toBeCalled();
+  });
+
+
+  it('should be call props selectAutor when click button alterar', () => {
+    const rowsTBody = wrapper.find('table').find('tbody').find('tr').find('td');
+    const alterarButton = rowsTBody.find('button').at(2);
+
+    alterarButton.simulate('click');
+
+    expect(selectAutorMock).toBeCalled();
   });
 
 });

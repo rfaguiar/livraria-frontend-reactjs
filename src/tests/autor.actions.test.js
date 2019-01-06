@@ -62,4 +62,11 @@ describe('autor actions tests', () => {
       });
   });
 
+  it('should create an action to SELECT_AUTOR', async () => {
+    const store= mockStore(initialState);
+    await store.dispatch(actions.selectAutor(0));
+    expect(store.getActions()[0].type).toEqual(types.SELECT_AUTOR);
+    expect(store.getActions()[0].payload).toEqual({index: 0});
+  });
+
 });

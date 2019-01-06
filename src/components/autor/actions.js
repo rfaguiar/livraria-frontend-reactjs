@@ -1,5 +1,5 @@
 import Helper from './helper';
-import {ADD_AUTOR, GET_AUTORES, REMOVE_AUTOR, UPDATE_AUTOR} from './actionTypes';
+import {ADD_AUTOR, GET_AUTORES, REMOVE_AUTOR, SELECT_AUTOR, UPDATE_AUTOR} from './actionTypes';
 
 export const getAutoresList = () => {
   const helper = new Helper();
@@ -39,4 +39,8 @@ export const updateAutor = (autor, index) => {
         return dispatch({type: UPDATE_AUTOR, payload: {autor, index}});
       });
   };
-}
+};
+
+export const selectAutor = index => {
+  return {type: SELECT_AUTOR, payload: {index}};
+};

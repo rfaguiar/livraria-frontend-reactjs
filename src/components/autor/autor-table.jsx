@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getAutoresList, removeAutor} from './actions';
+import {getAutoresList, removeAutor, selectAutor} from './actions';
 
 export class AutorTable extends Component {
 
@@ -27,7 +27,7 @@ export class AutorTable extends Component {
                 <tr key={index}>
                   <td>{autor.nome}</td>
                   <td>{autor.email}</td>
-                  <td><button>alterar</button></td>
+                  <td><button onClick={() => this.props.selectAutor(index)}>alterar</button></td>
                   <td><button onClick={() => this.props.removeAutor(autor)}>remover</button></td>
                 </tr>
               );
@@ -46,7 +46,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getAutoresList,
-  removeAutor
+  removeAutor,
+  selectAutor
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AutorTable);

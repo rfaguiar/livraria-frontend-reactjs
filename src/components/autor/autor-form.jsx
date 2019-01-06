@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {saveAutor} from './actions';
+import {saveAutor, updateAutor} from './actions';
 
 export class AutorForm extends Component {
 
@@ -9,8 +9,18 @@ export class AutorForm extends Component {
     super(props);
     this.state = {
       nome: '',
-      email: ''
+      email: '',
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.autor.indexSelected !== null &&
+      (this.props.autor.indexSelected !==  nextProps.autor.indexSelected)) {
+      this.setState({
+        nome: nextProps.autor.autores[nextProps.autor.indexSelected].nome,
+        email: nextProps.autor.autores[nextProps.autor.indexSelected].email
+      });
+    }
   }
 
   render() {
@@ -35,14 +45,25 @@ export class AutorForm extends Component {
 
   handleSubmitForm(event) {
     event.preventDefault();
-    this.props.saveAutor({
-      nome: this.state.nome,
-      email: this.state.email
-    }).then(() => {
+    this.saveOrUpdate()
+      .then(() => {
       this.setState({
         nome: '',
         email: ''
       });
+    });
+  }
+
+  saveOrUpdate() {
+    if (this.props.autor.indexSelected !== null) {
+      return this.props.updateAutor({
+        nome: this.state.nome,
+        email: this.state.email
+      },this.props.autor.indexSelected);
+    }
+    return this.props.saveAutor({
+      nome: this.state.nome,
+      email: this.state.email
     });
   }
 
@@ -61,7 +82,10 @@ export class AutorForm extends Component {
       emailPattern.test(String(this.state.email).toLowerCase());
   }
 }
+const mapStateToProps = state => ({
+  autor: state.autor
+});
 
-const mapDispatchToProps = dispatch => bindActionCreators({ saveAutor }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ saveAutor, updateAutor }, dispatch);
 
-export default connect(null, mapDispatchToProps)(AutorForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AutorForm);

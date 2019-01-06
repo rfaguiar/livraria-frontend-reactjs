@@ -5,6 +5,7 @@ export default {
     username: ''
   },
   autor: {
-    autores: []
+    autores: [],
+    indexSelected: null
   }
 }
