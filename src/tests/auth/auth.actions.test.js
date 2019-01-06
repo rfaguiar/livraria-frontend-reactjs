@@ -1,9 +1,9 @@
-import {AUTH_ERROR, AUTHENTICATE, SIGNOUT} from '../components/auth/actionTypes';
+import {AUTH_ERROR, AUTHENTICATE, SIGNOUT} from '../../components/auth/actionTypes';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import initialState from './initial-state';
-import {authenticate, logout} from '../components/auth/actions';
-import {fakeAuth} from '../components/auth/fake-auth';
+import initialState from '../util/initial-state';
+import {authenticate, logout} from '../../components/auth/actions';
+import {fakeAuth} from '../../components/auth/fake-auth';
 
 
 const middlewares = [thunk];

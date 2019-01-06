@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import {AutorTable} from '../components/autor/autor-table';
-import {autores} from '../components/autor/mock';
+import {AutorTable} from '../../components/autor/autor-table';
+import {autores} from '../../components/autor/mock';
 
 const getAjutoresListMock = jest.fn();
 const removeAutorMock = jest.fn();

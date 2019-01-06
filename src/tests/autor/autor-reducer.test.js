@@ -1,8 +1,8 @@
 import { Reducer } from 'redux-testkit';
-import initialState from './initial-state';
-import autorReducer from '../components/autor/autor-reducer';
-import * as types from '../components/autor/actionTypes';
-import {autores} from '../components/autor/mock';
+import initialState from '../util/initial-state';
+import autorReducer from '../../components/autor/autor-reducer';
+import * as types from '../../components/autor/actionTypes';
+import {autores} from '../../components/autor/mock';
 
 describe('autor reducer test', () => {
   it('should have initial state', () => {

@@ -1,5 +1,5 @@
-import * as auth from '../components/auth';
-import * as actions from '../components/auth/actions';
+import * as auth from '../../components/auth/index';
+import * as actions from '../../components/auth/actions';
 
 describe('test auth', () => {
 

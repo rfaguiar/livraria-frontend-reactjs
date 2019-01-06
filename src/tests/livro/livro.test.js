@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Livro from '../components/livro';
-import LivroContainer from '../components/livro/livro-container';
+import Livro from '../../components/livro/index';
+import LivroContainer from '../../components/livro/livro-container';
 
 describe('test Livro component', () => {
   it('renders without crashing', () => {

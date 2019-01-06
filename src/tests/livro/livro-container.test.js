@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
-import LivroContainer from '../components/livro/livro-container';
+import LivroContainer from '../../components/livro/livro-container';
 
 describe('test LivroConteiner component', () => {
 

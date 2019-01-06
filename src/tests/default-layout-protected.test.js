@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import DefaultLayoutProtected from '../livraria-router/default-layout-protected';
 
 
-import initialState from './initial-state';
+import initialState from './util/initial-state';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);

@@ -5,10 +5,10 @@ import { MemoryRouter } from 'react-router';
 import { Provider } from "react-redux";
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import LivrariaHeader from '../livraria-header';
-import MenuContainer from '../livraria-header/menu-container';
+import LivrariaHeader from '../../livraria-header/index';
+import MenuContainer from '../../livraria-header/menu-container';
 
-import initialState from './initial-state';
+import initialState from '../util/initial-state';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);

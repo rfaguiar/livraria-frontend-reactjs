@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import {shallow} from 'enzyme';
-import VendaContainer from '../components/venda/venda-container';
+import VendaContainer from '../../components/venda/venda-container';
 
 
 describe('test VendaContainer component', () => {

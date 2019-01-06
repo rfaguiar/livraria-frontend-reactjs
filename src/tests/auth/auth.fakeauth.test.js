@@ -1,4 +1,4 @@
-import {fakeAuth} from '../components/auth/fake-auth';
+import {fakeAuth} from '../../components/auth/fake-auth';
 
 describe('fake auth tests', () => {
   it('should be resolve true when authenticate corretly', () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Vendas from '../components/venda';
-import VendasContainer from '../components/venda/venda-container';
+import Vendas from '../../components/venda/index';
+import VendasContainer from '../../components/venda/venda-container';
 
 describe('test Login component', () => {
   it('renders without crashing', () => {

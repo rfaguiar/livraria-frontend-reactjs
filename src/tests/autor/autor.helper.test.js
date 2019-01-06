@@ -1,4 +1,4 @@
-import Helper from '../components/autor/helper';
+import Helper from '../../components/autor/helper';
 
 describe('autor helper tests', () => {
 

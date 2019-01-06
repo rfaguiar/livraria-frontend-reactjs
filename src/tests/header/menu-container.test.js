@@ -3,11 +3,11 @@ import {MemoryRouter} from 'react-router';
 import { Provider } from "react-redux";
 import {mount} from 'enzyme';
 import renderer from 'react-test-renderer';
-import MenuContainer from '../livraria-header/menu-container';
+import MenuContainer from '../../livraria-header/menu-container';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import initialState from './initial-state';
+import initialState from '../util/initial-state';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);

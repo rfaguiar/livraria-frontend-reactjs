@@ -3,12 +3,12 @@ import {MemoryRouter} from 'react-router';
 import { Provider } from "react-redux";
 import {mount} from 'enzyme';
 import renderer from 'react-test-renderer';
-import LoginContainer from '../components/login/login-container';
+import LoginContainer from '../../components/login/login-container';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import initialState from './initial-state';
-import {AUTHENTICATE} from '../components/auth/actionTypes';
+import initialState from '../util/initial-state';
+import {AUTHENTICATE} from '../../components/auth/actionTypes';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const expectedActions = [

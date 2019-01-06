@@ -1,7 +1,7 @@
 import { Reducer } from 'redux-testkit';
-import initialState from './initial-state';
-import authReducer from '../components/auth/auth-reducer';
-import * as types from '../components/auth/actionTypes';
+import initialState from '../util/initial-state';
+import authReducer from '../../components/auth/auth-reducer';
+import * as types from '../../components/auth/actionTypes';
 
 describe('test auth reducer tests', () => {
   it('should have initial state', () => {

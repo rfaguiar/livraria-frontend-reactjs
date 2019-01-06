@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {AutorForm} from '../components/autor/autor-form';
+import {AutorForm} from '../../components/autor/autor-form';
 import {mount} from 'enzyme/build/index';
 
 const mockSubmit = jest.fn(() => Promise.resolve(true));
