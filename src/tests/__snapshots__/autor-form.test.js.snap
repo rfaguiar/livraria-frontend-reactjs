@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test autorForm component should renders without crashing 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="autorNome"
+    >
+      Nome: 
+    </label>
+    <input
+      id="autorNome"
+      name="nome"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <label
+      htmlFor="autorEmail"
+    >
+      Email: 
+    </label>
+    <input
+      id="autorEmail"
+      name="email"
+      onChange={[Function]}
+      value=""
+    />
+    <br />
+    <button
+      disabled={true}
+      id="btnGravarAutor"
+      type="submit"
+    >
+      Gravar Autor
+    </button>
+  </form>
+</div>
+`;

@@ -3,5 +3,9 @@ export default {
     isAuthenticated: false,
     authError: '',
     username: ''
+  },
+  autor: {
+    autores: [],
+    indexSelected: null
   }
 }

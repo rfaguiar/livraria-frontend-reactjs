@@ -1,54 +1,39 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
 import AutorConteiner from '../components/autor/autor-container';
+import { mount } from 'enzyme';
+import { Provider } from "react-redux";
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+
+import initialState from './initial-state';
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+const store = mockStore(initialState);
 
 describe('test AutorConteiner component', () => {
 
-  const wrapper = shallow(<AutorConteiner/>);
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = mount(
+      <Provider store={store}>
+        <AutorConteiner />
+      </Provider>
+    );
+  });
 
   it('should renders without crashing', () => {
-    shallow(<AutorConteiner/>);
-    const tree = renderer.create(<AutorConteiner />)
-      .toJSON();
+    const tree = renderer.create(
+      <Provider store={store}>
+        <AutorConteiner />
+      </Provider>
+    ).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it('AutorConteiner should be contain form', () => {
-    expect(wrapper.find('form')).toExist();
-  });
-
   it('should be contains a "Novo Autor" title', () => {
-    expect(wrapper.find('h1')).toHaveText('Novo Autor');
-  });
-
-  it('should be contains nome input', () => {
-    const nome = wrapper.find('#autorNome');
-    expect(nome).toMatchSelector('input');
-    expect(nome).toHaveProp('name', 'nome');
-  });
-
-  it('should be contains email input', () => {
-    const email = wrapper.find('#autorEmail');
-    expect(email).toMatchSelector('input');
-    expect(email).toHaveProp('name', 'email');
-  });
-
-  it('should be contain a button "Gravar Autor" and type submit', () => {
-    const button = wrapper.find('#btnGravarAutor');
-    expect(button).toHaveProp('type', 'submit');
-    expect(button).toHaveText('Gravar Autor');
-  });
-
-  it('should be contain a table with title "Autores"', () => {
-    const table = wrapper.find('table');
-    expect(table.find('caption')).toHaveText('Autores');
-  });
-
-  it('should be contain a table with columns Nome, Email', () => {
-    const rowsTh = wrapper.find('table').find('thead').find('tr').find('th');
-    expect(rowsTh.at(0)).toHaveText('Nome');
-    expect(rowsTh.at(1)).toHaveText('Email');
+    expect(wrapper.find('h1').at(0)).toHaveText('Novo Autor');
   });
 
 });

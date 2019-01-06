@@ -1,36 +1,14 @@
 import React from 'react';
+import AutorTable from './autor-table';
+import AutorForm from './autor-form';
 
 const AutorContainer = () => {
   return(
     <div>
       <h1>Novo Autor</h1>
-      <form>
-        <label htmlFor={'autorNome'}>Nome: </label>
-        <input id={'autorNome'} name={'nome'}/>
-        <br/>
-        <label htmlFor={'autorEmail'}>Email: </label>
-        <input id={'autorEmail'} name={'email'}/>
-        <br/>
-        <button id={'btnGravarAutor'} type={'submit'}>Gravar Autor</button>
-      </form>
+      <AutorForm/>
       <br/>
-      <table>
-        <caption>Autores</caption>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Fulano</td>
-            <td>fulano@admin.com</td>
-            <td><button>alterar</button></td>
-            <td><button>remover</button></td>
-          </tr>
-        </tbody>
-      </table>
+      <AutorTable/>
     </div>
   );
 };

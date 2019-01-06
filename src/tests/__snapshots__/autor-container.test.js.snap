@@ -5,69 +5,61 @@ exports[`test AutorConteiner component should renders without crashing 1`] = `
   <h1>
     Novo Autor
   </h1>
-  <form>
-    <label
-      htmlFor="autorNome"
+  <div>
+    <form
+      onSubmit={[Function]}
     >
-      Nome: 
-    </label>
-    <input
-      id="autorNome"
-      name="nome"
-    />
-    <br />
-    <label
-      htmlFor="autorEmail"
-    >
-      Email: 
-    </label>
-    <input
-      id="autorEmail"
-      name="email"
-    />
-    <br />
-    <button
-      id="btnGravarAutor"
-      type="submit"
-    >
-      Gravar Autor
-    </button>
-  </form>
+      <label
+        htmlFor="autorNome"
+      >
+        Nome: 
+      </label>
+      <input
+        id="autorNome"
+        name="nome"
+        onChange={[Function]}
+        value=""
+      />
+      <br />
+      <label
+        htmlFor="autorEmail"
+      >
+        Email: 
+      </label>
+      <input
+        id="autorEmail"
+        name="email"
+        onChange={[Function]}
+        value=""
+      />
+      <br />
+      <button
+        disabled={true}
+        id="btnGravarAutor"
+        type="submit"
+      >
+        Gravar Autor
+      </button>
+    </form>
+  </div>
   <br />
-  <table>
-    <caption>
-      Autores
-    </caption>
-    <thead>
-      <tr>
-        <th>
-          Nome
-        </th>
-        <th>
-          Email
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          Fulano
-        </td>
-        <td>
-          fulano@admin.com
-        </td>
-        <td>
-          <button>
-            alterar
-          </button>
-        </td>
-        <td>
-          <button>
-            remover
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div>
+    <table>
+      <caption>
+        Autores
+      </caption>
+      <thead>
+        <tr>
+          <th>
+            Nome
+          </th>
+          <th>
+            Email
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
 </div>
 `;
