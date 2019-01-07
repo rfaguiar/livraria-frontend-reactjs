@@ -77,26 +77,29 @@ exports[`test Livro component renders without crashing 1`] = `
     </button>
   </form>
   <br />
-  <table>
-    <caption>
-      Livros
-    </caption>
-    <thead>
-      <tr>
-        <th>
-          Titulo
-        </th>
-        <th>
-          ISBN
-        </th>
-        <th>
-          Preço
-        </th>
-        <th>
-          Data Lançamento
-        </th>
-      </tr>
-    </thead>
-  </table>
+  <div>
+    <table>
+      <caption>
+        Livros
+      </caption>
+      <thead>
+        <tr>
+          <th>
+            Titulo
+          </th>
+          <th>
+            ISBN
+          </th>
+          <th>
+            Preço
+          </th>
+          <th>
+            Data Lançamento
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
 </div>
 `;

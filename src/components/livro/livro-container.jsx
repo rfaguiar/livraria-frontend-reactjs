@@ -1,4 +1,5 @@
 import React from 'react';
+import LivroTable from './livro-table';
 
 const LivroContainer = () => {
   return (
@@ -29,17 +30,7 @@ const LivroContainer = () => {
         <button id={'btnGravar'} type={'submit'}>Gravar Livro</button>
       </form>
       <br/>
-      <table>
-        <caption>Livros</caption>
-        <thead>
-          <tr>
-            <th>Titulo</th>
-            <th>ISBN</th>
-            <th>Preço</th>
-            <th>Data Lançamento</th>
-          </tr>
-        </thead>
-      </table>
+      <LivroTable/>
     </div>
   );
 }

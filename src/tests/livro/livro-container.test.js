@@ -1,21 +1,33 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import {shallow} from 'enzyme';
+import {mount} from 'enzyme';
+import { Provider } from "react-redux";
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import LivroContainer from '../../components/livro/livro-container';
+
+import initialState from '../util/initial-state';
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+const store = mockStore(initialState);
+const component = (
+  <Provider store={store}>
+    <LivroContainer/>
+  </Provider>
+);
 
 describe('test LivroConteiner component', () => {
 
-  const wrapper = shallow(<LivroContainer/>);
+  const wrapper = mount(component);
 
   it('should renders without crashing ', () => {
-    shallow(<LivroContainer/>);
-    const tree = renderer.create(<LivroContainer />)
+    const tree = renderer.create(component)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it('should be "Novo Livro" h1 title ', () => {
-    expect(wrapper.find('h1')).toHaveText('Novo Livro');
+    expect(wrapper.find('h1').first()).toHaveText('Novo Livro');
   });
 
   it('should be input titulo do livro', () => {
@@ -65,16 +77,5 @@ describe('test LivroConteiner component', () => {
     expect(button).toHaveProp('type', 'submit');
     expect(button).toHaveText('Gravar Livro');
   });
-
-  it('should be table with columns Titulo, ISBN, Preço, Data Lançamento', () => {
-    const table = wrapper.find('table');
-    const thead = table.find('thead').find('tr').find('th');
-    expect(table.find('caption')).toHaveText('Livros');
-    expect(thead.at(0)).toHaveText('Titulo');
-    expect(thead.at(1)).toHaveText('ISBN');
-    expect(thead.at(2)).toHaveText('Preço');
-    expect(thead.at(3)).toHaveText('Data Lançamento');
-  });
-
 
 });
