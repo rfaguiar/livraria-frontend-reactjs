@@ -7,5 +7,9 @@ export default {
   autor: {
     autores: [],
     indexSelected: null
+  },
+  livro: {
+    livros: [],
+    indexSelected: null,
   }
 }
