@@ -9,7 +9,11 @@ export class LivroForm extends Component{
     super(props);
     this.state = {
       selectAutor: '',
-      autoresSelected: []
+      autoresSelected: [],
+      titulo: '',
+      isbn: '',
+      preco: 0.0,
+      dataLancamento: ''
     }
   }
 
@@ -22,16 +26,24 @@ export class LivroForm extends Component{
       <div>
         <form>
           <label htmlFor={'livroTitulo'}>Titulo: </label>
-          <input id={'livroTitulo'} name={'titulo'}/>
+          <input id={'livroTitulo'}
+            name={'titulo'}
+            onChange={this.inputChange.bind(this)}/>
           <br/>
           <label htmlFor={'livroIsbn'}>ISBN: </label>
-          <input id={'livroIsbn'} name={'isbn'}/>
+          <input id={'livroIsbn'}
+            name={'isbn'}
+            onChange={this.inputChange.bind(this)}/>
           <br/>
           <label htmlFor={'livroPreco'}>Preço: </label>
-          <input id={'livroPreco'} name={'preco'}/>
+          <input id={'livroPreco'}
+            name={'preco'}
+            onChange={this.inputChange.bind(this)}/>
           <br/>
           <label htmlFor={'livroDataLancamento'}>Data de Lançamento: </label>
-          <input id={'livroDataLancamento'} name={'dataLancamento'}/>
+          <input id={'livroDataLancamento'}
+            name={'dataLancamento'}
+            onChange={this.inputChange.bind(this)}/>
           <br/>
           <label htmlFor={'livroAutores'}>Selecione o Autor: </label>
           <select id={'livroAutores'}
@@ -77,6 +89,15 @@ export class LivroForm extends Component{
   handleChange(event) {
     this.setState({
       selectAutor: event.target.value
+    });
+  }
+
+  inputChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    this.setState({
+      [name]: value
     });
   }
 }

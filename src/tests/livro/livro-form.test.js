@@ -79,6 +79,29 @@ describe('test livroForm component', () => {
     expect(button).toHaveProp('disabled', true);
   });
 
+  it('should change value to state when input value', () => {
+
+    expect(wrapper.state().titulo).toEqual('');
+    expect(wrapper.state().isbn).toEqual('');
+    expect(wrapper.state().preco).toEqual(0.0);
+    expect(wrapper.state().dataLancamento).toEqual('');
+
+    const titulo = wrapper.find('#livroTitulo').at(0);
+    titulo.simulate('change', {target: {name: 'titulo', value : 'tituloTeste'}});
+    const isbn = wrapper.find('#livroIsbn').at(0);
+    isbn.simulate('change', {target: {name: 'isbn', value : '123456789'}});
+    const preco = wrapper.find('#livroPreco').at(0);
+    preco.simulate('change', {target: {name: 'preco', value : 130.0}});
+    const dataLancamento = wrapper.find('#livroDataLancamento').at(0);
+    dataLancamento.simulate('change', {target: {name: 'dataLancamento', value : '11/12/2019'}});
+
+    expect(wrapper.state().titulo).toEqual('tituloTeste');
+    expect(wrapper.state().isbn).toEqual('123456789');
+    expect(wrapper.state().preco).toEqual(130.0);
+    expect(wrapper.state().dataLancamento).toEqual('11/12/2019');
+
+  });
+
   it('should select autor when change select value', () => {
     const select = wrapper.find('#livroAutores').at(0);
     select.simulate('change', {target: { value : 0}});

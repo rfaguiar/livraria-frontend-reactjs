@@ -15,6 +15,7 @@ exports[`test LivroConteiner component should renders without crashing  1`] = `
       <input
         id="livroTitulo"
         name="titulo"
+        onChange={[Function]}
       />
       <br />
       <label
@@ -25,6 +26,7 @@ exports[`test LivroConteiner component should renders without crashing  1`] = `
       <input
         id="livroIsbn"
         name="isbn"
+        onChange={[Function]}
       />
       <br />
       <label
@@ -35,6 +37,7 @@ exports[`test LivroConteiner component should renders without crashing  1`] = `
       <input
         id="livroPreco"
         name="preco"
+        onChange={[Function]}
       />
       <br />
       <label
@@ -45,6 +48,7 @@ exports[`test LivroConteiner component should renders without crashing  1`] = `
       <input
         id="livroDataLancamento"
         name="dataLancamento"
+        onChange={[Function]}
       />
       <br />
       <label
