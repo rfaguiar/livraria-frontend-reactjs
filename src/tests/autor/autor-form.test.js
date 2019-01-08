@@ -54,7 +54,6 @@ describe('test autorForm component', () => {
 
     const nome = wrapper.find('#autorNome').at(0);
     const email = wrapper.find('#autorEmail').at(0);
-    const button = wrapper.find('#btnGravarAutor').at(0);
 
     nome.simulate('change', {target: {name: 'nome', value: 'nomeTest'}});
     email.simulate('change', {target: {name: 'email', value: 'emailtest@email.com'}});
@@ -62,9 +61,8 @@ describe('test autorForm component', () => {
     expect(wrapper.state().nome).toEqual('nomeTest');
     expect(wrapper.state().email).toEqual('emailtest@email.com');
 
-    wrapper.update();
-
-    expect(button).toHaveProp('disabled', true);
+    const button = wrapper.find('#btnGravarAutor').at(0);
+    expect(button).toHaveProp('disabled', false);
   });
 
   it('should submit form', () => {

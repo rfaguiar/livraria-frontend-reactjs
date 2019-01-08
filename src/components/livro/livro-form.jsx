@@ -72,10 +72,18 @@ export class LivroForm extends Component{
             }
           </ul>
           <br/>
-          <button id={'btnGravar'} type={'submit'} disabled={true}>Gravar Livro</button>
+          <button id={'btnGravar'} type={'submit'} disabled={!this.validateForm()} >Gravar Livro</button>
         </form>
       </div>
     );
+  }
+
+  validateForm() {
+    return this.state.titulo.length > 0 &&
+      this.state.autoresSelected.length > 0 &&
+      this.state.dataLancamento !== '' &&
+      this.state.isbn !== '' &&
+      this.state.preco > 0.0;
   }
 
   addAutorToList() {

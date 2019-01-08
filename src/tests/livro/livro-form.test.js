@@ -79,6 +79,20 @@ describe('test livroForm component', () => {
     expect(button).toHaveProp('disabled', true);
   });
 
+  it('should enable button Gravar Livro when inputs is not empty', async () => {
+    await wrapper.setState({
+      autoresSelected: [autores.autores[0]],
+      titulo: 'tituloTest',
+      isbn: '123456789',
+      preco: 130.0,
+      dataLancamento: '11/12/2019'
+    });
+
+    const button = wrapper.find('#btnGravar').at(0);
+    expect(button).toHaveProp('disabled', false);
+
+  });
+
   it('should change value to state when input value', () => {
 
     expect(wrapper.state().titulo).toEqual('');
