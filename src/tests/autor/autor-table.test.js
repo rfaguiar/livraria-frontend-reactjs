@@ -4,32 +4,29 @@ import { mount } from 'enzyme';
 import {AutorTable} from '../../components/autor/autor-table';
 import {autores} from '../../components/autor/mock';
 
-const getAjutoresListMock = jest.fn();
+const getAutoresListMock = jest.fn();
 const removeAutorMock = jest.fn();
 const selectAutorMock = jest.fn();
+const component = (
+  <AutorTable autores={autores.autores}
+    getAutoresList={getAutoresListMock}
+    removeAutor={removeAutorMock}
+    selectAutor={selectAutorMock}
+  />
+);
 
 describe('test AutorTable components', () => {
 
   let wrapper;
 
   beforeEach(() => {
-    wrapper = mount(<AutorTable autores={autores.autores}
-      getAutoresList={getAjutoresListMock}
-      removeAutor={removeAutorMock}
-      selectAutor={selectAutorMock}
-    />);
+    wrapper = mount(component);
   });
 
   it('should renders without crashing', () => {
-    const tree = renderer.create(
-      <AutorTable autores={autores.autores}
-        getAutoresList={getAjutoresListMock}
-        removeAutor={removeAutorMock}
-        alterarAutor={selectAutorMock}
-      />
-    ).toJSON();
+    const tree = renderer.create(component).toJSON();
     expect(tree).toMatchSnapshot();
-    expect(getAjutoresListMock).toBeCalled();
+    expect(getAutoresListMock).toBeCalled();
   });
 
   it('should be contain a table with title "Autores"', () => {
