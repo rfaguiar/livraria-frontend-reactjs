@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getAutoresList} from '../autor/actions';
+import {saveLivro} from './actions';
 
 export class LivroForm extends Component{
 
@@ -24,7 +25,7 @@ export class LivroForm extends Component{
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmitForm.bind(this)}>
           <label htmlFor={'livroTitulo'}>Titulo: </label>
           <input id={'livroTitulo'}
             name={'titulo'}
@@ -78,6 +79,26 @@ export class LivroForm extends Component{
     );
   }
 
+  handleSubmitForm(event) {
+    event.preventDefault();
+    this.props.saveLivro({
+      autores: this.state.autoresSelected,
+      titulo: this.state.titulo,
+      isbn: this.state.isbn,
+      preco: this.state.preco,
+      dataLancamento: this.state.dataLancamento
+    }).then(() => {
+      this.setState({
+        selectAutor: '',
+        autoresSelected: [],
+        titulo: '',
+        isbn: '',
+        preco: 0.0,
+        dataLancamento: ''
+      });
+    });
+  }
+
   validateForm() {
     return this.state.titulo.length > 0 &&
       this.state.autoresSelected.length > 0 &&
@@ -115,6 +136,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  saveLivro,
   getAutoresList
 }, dispatch);
 

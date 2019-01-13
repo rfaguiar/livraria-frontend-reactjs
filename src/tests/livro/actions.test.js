@@ -23,4 +23,22 @@ describe('livro actions tests', () => {
       });
   });
 
+  it('should save autor in backserver and create an action to ADD_LIVRO', () => {
+    const store = mockStore(initialState);
+    const livroMock = {
+      titulo: 'reactjs',
+      isbn: '12345678',
+      preco: 20.0,
+      dtLancamento: '11/05/2018',
+      autores: [
+        {nome: 'fulano', email: 'fulano@email.com'}
+      ]
+    };
+    return store.dispatch(actions.saveLivro(livroMock))
+      .then(() => {
+        expect(store.getActions()[0].type).toEqual(types.ADD_LIVRO);
+        expect(store.getActions()[0].payload).toEqual(livroMock);
+      });
+
+  });
 });

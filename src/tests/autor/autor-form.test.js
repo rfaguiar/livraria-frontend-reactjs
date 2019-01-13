@@ -82,7 +82,6 @@ describe('test autorForm component', () => {
     expect(mockSubmit).toBeCalled();
   });
 
-
   it('should save Autor when nextprops to equal', async () => {
     wrapper = mount(<AutorForm
       saveAutor={mockSubmit}

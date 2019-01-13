@@ -5,8 +5,10 @@ import {LivroForm} from '../../components/livro/livro-form';
 import {autores} from '../../components/autor/mock';
 
 const getAutoresListMock = jest.fn();
+const mockSubmit = jest.fn(() => Promise.resolve(true));
 const component = (
   <LivroForm
+    saveLivro={mockSubmit}
     autores={autores.autores}
     getAutoresList={getAutoresListMock}
   />
@@ -130,6 +132,19 @@ describe('test livroForm component', () => {
     expect(wrapper.state().autoresSelected.length).toEqual(1);
     expect(wrapper.state().selectAutor).toEqual('');
     expect(wrapper.state().autoresSelected).toContain(autores.autores[0]);
+  });
+
+  it('should save Livro when nextprops to equal', async () => {
+    await wrapper.setState({
+      autoresSelected: [{nome: 'fulano', email: 'fulano@email.com'}],
+      titulo: 'reactjs',
+      isbn: '12345678',
+      preco: 20.0,
+      dataLancamento: '11/05/2018'
+    });
+
+    wrapper.find("form").simulate("submit");
+    expect(mockSubmit).toBeCalled();
   });
 
 });

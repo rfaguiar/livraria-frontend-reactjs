@@ -6,7 +6,9 @@ exports[`test Livro component renders without crashing 1`] = `
     Novo Livro
   </h1>
   <div>
-    <form>
+    <form
+      onSubmit={[Function]}
+    >
       <label
         htmlFor="livroTitulo"
       >

@@ -23,4 +23,14 @@ describe('livro reducer test', () => {
       .toReturnState(valueFromAction);
   });
 
+  it('should add livro when ADD_LIVRO type', () => {
+    const action = {type: types.ADD_LIVRO, payload: livros.livros[0]};
+    const valueFromAction = {...initialState.livro, livros: [].concat(livros.livros[0])};
+
+    Reducer(livroReducer)
+      .withState(initialState.livro)
+      .expect(action)
+      .toReturnState(valueFromAction);
+  });
+
 });

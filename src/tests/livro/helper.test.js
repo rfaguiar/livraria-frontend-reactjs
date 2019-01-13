@@ -16,4 +16,20 @@ describe('livro helper tests', () => {
     });
   });
 
+  it('should send livro to backserver when call saveLivro method', () => {
+    const livroMock = {
+      titulo: 'reactjs',
+      isbn: '12345678',
+      preco: 20.0,
+      dtLancamento: '11/05/2018',
+      autores: [
+        {nome: 'fulano', email: 'fulano@email.com'}
+        ]
+    };
+    return helper.saveLivro(livroMock).then( (data) => {
+      expect(data);
+      expect(data.status).toEqual(201);
+    });
+  });
+
 });

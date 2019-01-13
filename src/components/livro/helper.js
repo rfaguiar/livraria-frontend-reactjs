@@ -8,4 +8,11 @@ export default class Helper {
     });
   }
 
+  saveLivro(livro) {
+    return new Promise( resolve => {
+      mockResponse.livros.livros.push(livro);
+      setTimeout(resolve({status: 201}), 500);
+    });
+  }
+
 }
