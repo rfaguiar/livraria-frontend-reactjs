@@ -1,4 +1,4 @@
-import {ADD_LIVRO, GET_LIVROS} from './actionTypes';
+import {ADD_LIVRO, GET_LIVROS, REMOVE_LIVRO} from './actionTypes';
 
 const initialState = {
   livros: [],
@@ -7,6 +7,11 @@ const initialState = {
 
 const livroReducer = (state = initialState, action) => {
   switch (action.type) {
+    case REMOVE_LIVRO:
+      return {
+        ...state,
+        livros: state.livros.filter(livro => livro !== action.payload)
+      };
     case ADD_LIVRO:
       return {
         ...state,

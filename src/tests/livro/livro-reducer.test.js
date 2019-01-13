@@ -33,4 +33,36 @@ describe('livro reducer test', () => {
       .toReturnState(valueFromAction);
   });
 
+  it('should be remove livro to livros list when REMOVE_LIVRO type', () => {
+    const action = {type: types.REMOVE_LIVRO, payload: livros.livros[0]};
+    const valueFromAction = {...initialState.livro, livros: []};
+    initialState.livro.livros.concat(livros.livros[0]);
+
+    Reducer(livroReducer)
+      .withState(initialState.livro)
+      .expect(action)
+      .toReturnState(valueFromAction);
+  });
+
+  it('should be not remove livro to livros list when REMOVE_LIVRO type and livro not equal', () => {
+    const action = {type: types.REMOVE_LIVRO, payload: livros.livros[0]};
+    initialState.livro.livros.concat(livros.livros[0]);
+    const stateMock = {
+      livros: [{
+        titulo: 'test livro',
+        isbn: '123',
+        preco: 20.0,
+        dtLancamento: '23/09/2016',
+        autores: [{
+          nome: 'ciclano',
+          email: 'ciclano@email.com'
+        }]
+      }]};
+
+    Reducer(livroReducer)
+      .withState(stateMock)
+      .expect(action)
+      .toReturnState(stateMock);
+  });
+
 });

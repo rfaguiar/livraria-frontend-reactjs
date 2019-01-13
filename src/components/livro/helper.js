@@ -15,4 +15,12 @@ export default class Helper {
     });
   }
 
+  removeLivro(livro) {
+    return new Promise(resolve => {
+      const index = mockResponse.livros.livros.indexOf(livro);
+      mockResponse.livros.livros.splice(index, 1);
+      setTimeout(resolve({status: 200}), 500);
+    });
+  }
+
 }

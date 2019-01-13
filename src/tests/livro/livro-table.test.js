@@ -5,10 +5,12 @@ import {livros} from '../../components/livro/mock';
 import {LivroTable} from '../../components/livro/livro-table';
 
 const getLivrosListMock = jest.fn();
+const removeLivroMock = jest.fn();
 const component = (
   <LivroTable
     livros={livros.livros}
-    getLivrosList={getLivrosListMock} />
+    getLivrosList={getLivrosListMock}
+    removeLivro={removeLivroMock}/>
 );
 
 describe('test LivroTable components', () => {
@@ -33,6 +35,15 @@ describe('test LivroTable components', () => {
     expect(thead.at(1)).toHaveText('ISBN');
     expect(thead.at(2)).toHaveText('Preço');
     expect(thead.at(3)).toHaveText('Data Lançamento');
+  });
+
+  it('should be call props removeLivro when click button remover', () => {
+    const rowsTBody = wrapper.find('table').find('tbody').find('tr').find('td');
+    const removeButton = rowsTBody.find('button').at(1);
+
+    removeButton.simulate('click');
+
+    expect(removeLivroMock).toBeCalled();
   });
 
 });

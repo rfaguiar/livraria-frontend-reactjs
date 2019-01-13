@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {getLivrosList} from './actions';
+import {getLivrosList, removeLivro} from './actions';
 
 export class LivroTable extends Component {
 
@@ -32,7 +32,7 @@ export class LivroTable extends Component {
                   <td>{livro.preco}</td>
                   <td>{livro.dtLancamento}</td>
                   <td>alterar</td>
-                  <td>remover</td>
+                  <td><button onClick={() => this.props.removeLivro(livro)} >remover</button></td>
                 </tr>
               );
             })
@@ -49,7 +49,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getLivrosList
+  getLivrosList,
+  removeLivro
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(LivroTable);

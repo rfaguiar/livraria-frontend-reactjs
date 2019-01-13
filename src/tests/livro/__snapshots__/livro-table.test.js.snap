@@ -40,7 +40,11 @@ exports[`test LivroTable components should renders without crashing 1`] = `
           alterar
         </td>
         <td>
-          remover
+          <button
+            onClick={[Function]}
+          >
+            remover
+          </button>
         </td>
       </tr>
       <tr>
@@ -60,7 +64,11 @@ exports[`test LivroTable components should renders without crashing 1`] = `
           alterar
         </td>
         <td>
-          remover
+          <button
+            onClick={[Function]}
+          >
+            remover
+          </button>
         </td>
       </tr>
     </tbody>
