@@ -46,4 +46,24 @@ describe('livro actions tests', () => {
       });
   });
 
+  it('should create an action to UPDATE_LIVRO', () => {
+
+    const store= mockStore(initialState);
+    const saveMock = jest.fn(() => Promise.resolve({status: 200}));
+    Helper.prototype.saveLivro = saveMock;
+    return store.dispatch(actions.updateLivro(mockResponse.livros.livros[0], 0))
+      .then(() => {
+        expect(saveMock).toBeCalled();
+        expect(store.getActions()[0].type).toEqual(types.UPDATE_LIVRO);
+        expect(store.getActions()[0].payload).toEqual({livro: mockResponse.livros.livros[0], index: 0});
+      });
+  });
+
+  it('should create an action to SELECT_LIVRO', async () => {
+    const store= mockStore(initialState);
+    await store.dispatch(actions.selectLivro(0));
+    expect(store.getActions()[0].type).toEqual(types.SELECT_LIVRO);
+    expect(store.getActions()[0].payload).toEqual({index: 0});
+  });
+
 });

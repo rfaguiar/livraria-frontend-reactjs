@@ -3,14 +3,18 @@ import {mount} from 'enzyme/build/index';
 import renderer from 'react-test-renderer';
 import {LivroForm} from '../../components/livro/livro-form';
 import {autores} from '../../components/autor/mock';
+import * as mockResponse from '../../components/livro/mock';
 
 const getAutoresListMock = jest.fn();
 const mockSubmit = jest.fn(() => Promise.resolve(true));
+const mockUpdateLivro = jest.fn(() => Promise.resolve(true));
 const component = (
   <LivroForm
     saveLivro={mockSubmit}
+    updateLivro={mockUpdateLivro}
     autores={autores.autores}
     getAutoresList={getAutoresListMock}
+    livro={{indexSelected: null}}
   />
 );
 
@@ -134,15 +138,25 @@ describe('test livroForm component', () => {
     expect(wrapper.state().autoresSelected).toContain(autores.autores[0]);
   });
 
-  it('should save Livro when nextprops to equal', async () => {
-    await wrapper.setState({
-      autoresSelected: [{nome: 'fulano', email: 'fulano@email.com'}],
-      titulo: 'reactjs',
-      isbn: '12345678',
-      preco: 20.0,
-      dataLancamento: '11/05/2018'
-    });
+  it('should submit form', () => {
 
+    wrapper.find("form").simulate("submit");
+    expect(mockSubmit).toBeCalled();
+  });
+
+  it('should update Livro when submit form', async () => {
+    await wrapper.setProps({livro:{indexSelected: 0, livros: mockResponse.livros.livros}});
+    expect(wrapper.state().titulo).toEqual(mockResponse.livros.livros[0].titulo);
+    expect(wrapper.state().isbn).toEqual(mockResponse.livros.livros[0].isbn);
+    expect(wrapper.state().preco).toEqual(mockResponse.livros.livros[0].preco);
+    expect(wrapper.state().dataLancamento).toEqual(mockResponse.livros.livros[0].dataLancamento);
+    expect(wrapper.state().autoresSelected).toEqual(mockResponse.livros.livros[0].autores);
+    wrapper.find("form").simulate("submit");
+    expect(mockUpdateLivro).toBeCalled();
+  });
+
+  it('should save Livro when nextprops to equal', async () => {
+    await wrapper.setProps({livro:{indexSelected: null, livros: mockResponse.livros.livros}});
     wrapper.find("form").simulate("submit");
     expect(mockSubmit).toBeCalled();
   });

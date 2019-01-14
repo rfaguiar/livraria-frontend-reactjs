@@ -1,5 +1,6 @@
 import {GET_LIVROS, ADD_LIVRO, REMOVE_LIVRO} from '../livro/actionTypes';
 import Helper from '../livro/helper';
+import {SELECT_LIVRO, UPDATE_LIVRO} from './actionTypes';
 
 export const getLivrosList = () => {
   const helper = new Helper();
@@ -29,4 +30,18 @@ export const removeLivro = livro => {
         return dispatch({type: REMOVE_LIVRO, payload: livro});
       });
   };
+};
+
+export const updateLivro = (livro, index) => {
+  const helper = new Helper();
+  return dispatch => {
+    return helper.saveLivro(livro)
+      .then(() => {
+        return dispatch({type: UPDATE_LIVRO, payload: {livro, index}});
+      });
+  };
+};
+
+export const selectLivro = index => {
+  return {type: SELECT_LIVRO, payload: {index}};
 };

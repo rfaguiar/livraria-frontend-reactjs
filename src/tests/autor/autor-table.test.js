@@ -49,7 +49,6 @@ describe('test AutorTable components', () => {
     expect(removeAutorMock).toBeCalled();
   });
 
-
   it('should be call props selectAutor when click button alterar', () => {
     const rowsTBody = wrapper.find('table').find('tbody').find('tr').find('td');
     const alterarButton = rowsTBody.find('button').at(2);

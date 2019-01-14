@@ -55,16 +55,14 @@ export class AutorForm extends Component {
   }
 
   saveOrUpdate() {
-    if (this.props.autor.indexSelected !== null) {
-      return this.props.updateAutor({
-        nome: this.state.nome,
-        email: this.state.email
-      },this.props.autor.indexSelected);
-    }
-    return this.props.saveAutor({
+    const autor = {
       nome: this.state.nome,
       email: this.state.email
-    });
+    };
+    if (this.props.autor.indexSelected !== null) {
+      return this.props.updateAutor(autor,this.props.autor.indexSelected);
+    }
+    return this.props.saveAutor(autor);
   }
 
   inputChange(event) {

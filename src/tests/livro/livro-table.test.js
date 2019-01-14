@@ -6,11 +6,13 @@ import {LivroTable} from '../../components/livro/livro-table';
 
 const getLivrosListMock = jest.fn();
 const removeLivroMock = jest.fn();
+const selectLivroMock = jest.fn();
 const component = (
   <LivroTable
     livros={livros.livros}
     getLivrosList={getLivrosListMock}
-    removeLivro={removeLivroMock}/>
+    removeLivro={removeLivroMock}
+    selectLivro={selectLivroMock}/>
 );
 
 describe('test LivroTable components', () => {
@@ -44,6 +46,15 @@ describe('test LivroTable components', () => {
     removeButton.simulate('click');
 
     expect(removeLivroMock).toBeCalled();
+  });
+
+  it('should be call props selectLivro when click button alterar', () => {
+    const rowsTBody = wrapper.find('table').find('tbody').find('tr').find('td');
+    const alterarButton = rowsTBody.find('button').at(2);
+
+    alterarButton.simulate('click');
+
+    expect(selectLivroMock).toBeCalled();
   });
 
 });

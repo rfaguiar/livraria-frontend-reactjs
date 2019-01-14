@@ -4,9 +4,11 @@ import {AutorForm} from '../../components/autor/autor-form';
 import {mount} from 'enzyme/build/index';
 
 const mockSubmit = jest.fn(() => Promise.resolve(true));
+const mockUpdateAutor = jest.fn(() => Promise.resolve(true));
 const autorComponent = (
   <AutorForm
     saveAutor={mockSubmit}
+    updateAutor={mockUpdateAutor}
     autor={{indexSelected: null}}/>
 );
 
@@ -72,9 +74,6 @@ describe('test autorForm component', () => {
   });
 
   it('should update Autor when submit form', async () => {
-    wrapper = mount(<AutorForm
-      updateAutor={mockSubmit}
-      autor={{indexSelected: null}} />);
     await wrapper.setProps({autor:{indexSelected: 0, autores:[{nome: 'nomeTest', email: 'nometest@email.com'}]}});
     expect(wrapper.state().nome).toEqual('nomeTest');
     expect(wrapper.state().email).toEqual('nometest@email.com');
@@ -83,9 +82,6 @@ describe('test autorForm component', () => {
   });
 
   it('should save Autor when nextprops to equal', async () => {
-    wrapper = mount(<AutorForm
-      saveAutor={mockSubmit}
-      autor={{indexSelected: null}} />);
     await wrapper.setProps({autor:{indexSelected: null, autores:[{nome: 'nomeTest', email: 'nometest@email.com'}]}});
     wrapper.find("form").simulate("submit");
     expect(mockSubmit).toBeCalled();
