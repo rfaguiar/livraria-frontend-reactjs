@@ -8,10 +8,12 @@ import {applyMiddleware, combineReducers, createStore} from 'redux';
 import LivrariaRouter from './livraria-router';
 import authReducer from './components/auth/auth-reducer';
 import autorReducer from './components/autor/autor-reducer';
+import livroReducer from './components/livro/livro-reducer';
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  autor: autorReducer
+  autor: autorReducer,
+  livro: livroReducer
 });
 
 const store = createStore(rootReducer, applyMiddleware(multi, thunk));

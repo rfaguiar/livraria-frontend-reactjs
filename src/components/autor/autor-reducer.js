@@ -2,7 +2,7 @@ import {GET_AUTORES, ADD_AUTOR, REMOVE_AUTOR, UPDATE_AUTOR, SELECT_AUTOR} from '
 
 const initialState = {
   autores: [],
-  indexSelected: null,
+  indexSelected: null
 };
 
 const autorReducer = (state = initialState, action) => {

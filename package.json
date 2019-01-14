@@ -20,7 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll",
+    "coverage": "react-scripts test -u --coverage",
     "eject": "react-scripts eject",
     "sonarqube": "sonarqube-scanner-node"
   },

@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test LivroTable components should renders without crashing 1`] = `
+<div>
+  <table>
+    <caption>
+      Livros
+    </caption>
+    <thead>
+      <tr>
+        <th>
+          Titulo
+        </th>
+        <th>
+          ISBN
+        </th>
+        <th>
+          Preço
+        </th>
+        <th>
+          Data Lançamento
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          reactjs
+        </td>
+        <td>
+          12345678
+        </td>
+        <td>
+          20
+        </td>
+        <td>
+          11/05/2018
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+            alterar
+          </button>
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+            remover
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          react native
+        </td>
+        <td>
+          87654321
+        </td>
+        <td>
+          15
+        </td>
+        <td>
+          20/08/2018
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+            alterar
+          </button>
+        </td>
+        <td>
+          <button
+            onClick={[Function]}
+          >
+            remover
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

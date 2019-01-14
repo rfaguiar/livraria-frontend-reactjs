@@ -14,7 +14,7 @@ cache:
 jdk:
 - oraclejdk8
 script:
-  - npm test -- --coverage
+  - npm run coverage
   - npm run build
   - sonar-scanner
 cache:
