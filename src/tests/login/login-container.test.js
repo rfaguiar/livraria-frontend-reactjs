@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 
 import initialState from '../util/initial-state';
 import {AUTHENTICATE} from '../../components/auth/actionTypes';
+import {createNodeMock} from '../util/mock';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const expectedActions = [
@@ -37,8 +38,8 @@ describe('test LoginContainer component', () => {
         <MemoryRouter>
           <LoginContainer/>
         </MemoryRouter>
-      </Provider>
-    ).toJSON();
+      </Provider>,
+      { createNodeMock }).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -48,13 +49,13 @@ describe('test LoginContainer component', () => {
 
   it('LoginContainer should be contain input loginEmail', () => {
     const email = wrapper.find('#loginEmail').at(0);
-    expect(email).toMatchSelector('input');
+    expect(email).toMatchSelector('TextField');
     expect(email).toHaveProp('name', 'email');
   });
 
   it('LoginContainer should be contain input loginSenha', () => {
     const senha = wrapper.find('#loginSenha').at(0);
-    expect(senha).toMatchSelector('input');
+    expect(senha).toMatchSelector('TextField');
     expect(senha).toHaveProp('name', 'senha');
   });
 
