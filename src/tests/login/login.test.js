@@ -7,6 +7,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import initialState from '../util/initial-state';
+import {createNodeMock} from '../util/mock';
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const store = mockStore(initialState);
@@ -18,8 +19,8 @@ describe('test Login component', () => {
         <MemoryRouter>
           <Login/>
         </MemoryRouter>
-      </Provider>
-    ).toJSON();
+      </Provider>,
+      { createNodeMock }).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
